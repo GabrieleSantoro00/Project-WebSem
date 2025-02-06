@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:vann="http://purl.org/vocab/vann/"
+         xmlns:owl="http://www.w3.org/2002/07/owl#">
+
+    <!-- Definizione dell'ontologia -->
+    <owl:Ontology rdf:about="http://example.org/myontology">
+        
+        <!-- Metadati -->
+        <dc:title xml:lang="it">Titolo Esteso dell'Ontologia</dc:title>
+        <dc:description xml:lang="it">Descrizione dettagliata dell'ontologia che riguarda le terapie in psicologia, con un focus sui metadati richiesti.</dc:description>
+        <rdfs:label xml:lang="it">Nome Ontologia</rdfs:label>
+        <vann:preferredNamespacePrefix>myprefix</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>http://example.org/myontology#</vann:preferredNamespaceUri>
+        <dc:date>2025-01-30</dc:date>
+        <dc:creator xml:lang="it">Nome Autore</dc:creator>
+
+    </owl:Ontology>
+
+</rdf:RDF>

@@ -4,6 +4,9 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix snomed: <http://purl.bioontology.org/ontology/SNOMEDCT> .
+@prefix apaonto: <http://ontology.apa.org/apaonto#> .
 @base <http://www.semanticweb.org/santo/ontologies/2025/0/> .
 
 <http://www.semanticweb.org/santo/ontologies/2025/0/Terapies> rdf:type owl:Ontology ;
@@ -13,286 +16,215 @@
 #    Annotation properties
 #################################################################
 
-###  http://id.who.int/icd/entity/Disorder
-<http://id.who.int/icd/entity/Disorder> rdf:type owl:AnnotationProperty .
-
-
-###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLAnnotationProperty_0c7f01af_9530_4613_9f31_827b91e237cd
-:OWLAnnotationProperty_0c7f01af_9530_4613_9f31_827b91e237cd rdf:type owl:AnnotationProperty ;
-                                                            rdfs:label "snomed:Paziente"@en .
-
-
 ###  http://www.w3.org/2004/02/skos/core#closeMatch
-<http://www.w3.org/2004/02/skos/core#closeMatch> rdf:type owl:AnnotationProperty .
+skos:closeMatch rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#exactMatch
+skos:exactMatch rdf:type owl:AnnotationProperty .
 
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9> rdf:type owl:ObjectProperty ;
-                                                                                                              rdfs:domain :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
-                                                                                                              rdfs:range <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_08562063_df71_44d1_8083_262a50b893b5> ;
-                                                                                                              rdfs:label "èCorrelatoA"@en .
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_260d2dab_8e39_4a8c_b25e_15719e92254b
+:OWLObjectProperty_260d2dab_8e39_4a8c_b25e_15719e92254b rdf:type owl:ObjectProperty ,
+                                                                 owl:IrreflexiveProperty ;
+                                                        rdfs:domain :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                                        rdfs:range :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                                        rdfs:label "collegatoA"@en .
 
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_75888f6e_d87e_4fbf_b8c1_681bd460c348
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_75888f6e_d87e_4fbf_b8c1_681bd460c348> rdf:type owl:ObjectProperty ;
-                                                                                                              rdfs:domain :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
-                                                                                                              rdfs:range :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
-                                                                                                              rdfs:label "puòEssereTrattatoCon"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_7e0c0f6c_049f_4e68_a2b3_646c8e022ff3
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_7e0c0f6c_049f_4e68_a2b3_646c8e022ff3> rdf:type owl:ObjectProperty ;
-                                                                                                              rdfs:domain <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6> ;
-                                                                                                              rdfs:range <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_bbab3e07_05eb_43f8_afa3_e3262e85494f> ;
-                                                                                                              rdfs:label "haEffetto"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651> rdf:type owl:ObjectProperty ;
-                                                                                                              rdfs:domain <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6> ;
-                                                                                                              rdfs:range :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
-                                                                                                              rdfs:label "prescrittoPer"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_8b69438b_dec8_48fa_af4d_076a057000db
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_8b69438b_dec8_48fa_af4d_076a057000db> rdf:type owl:ObjectProperty ;
-                                                                                                              rdfs:domain :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
-                                                                                                              rdfs:range :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
-                                                                                                              rdfs:label "tratta"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_96efcd06_d9bc_4540_aae8_9499aeb9fc18
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_96efcd06_d9bc_4540_aae8_9499aeb9fc18> rdf:type owl:ObjectProperty ;
-                                                                                                              rdfs:label "prescrive"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_aafb885c_31a3_40d0_b36b_47fa3a3b568a
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_aafb885c_31a3_40d0_b36b_47fa3a3b568a> rdf:type owl:ObjectProperty ;
-                                                                                                              rdfs:domain :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
-                                                                                                              rdfs:range <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_a6b05446_2914_47c9_85ee_eca9f5865b8f> ;
-                                                                                                              rdfs:label "haGravità"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_cfe6c22b_021d_482d_98f2_4fb8f4175fcb
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_cfe6c22b_021d_482d_98f2_4fb8f4175fcb> rdf:type owl:ObjectProperty ;
-                                                                                                              rdfs:label "faUsoDi"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_e0812f91_da10_4c28_a487_66811b456f05
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_e0812f91_da10_4c28_a487_66811b456f05> rdf:type owl:ObjectProperty ;
-                                                                                                              rdfs:domain :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
-                                                                                                              rdfs:range :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
-                                                                                                              rdfs:label "èConsigliataPer"@en .
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_26970676_f426_49aa_a669_415ab4bec00d
+:OWLObjectProperty_26970676_f426_49aa_a669_415ab4bec00d rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain :OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72 ;
+                                                        rdfs:range :OWLClass_72eca0d1_cf6d_4340_a247_aa1b249dcd4b ;
+                                                        rdfs:label "haInCura"@en .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_28bf07f2_ce0f_4a60_8cd6_15431d9dd52b
 :OWLObjectProperty_28bf07f2_ce0f_4a60_8cd6_15431d9dd52b rdf:type owl:ObjectProperty ;
                                                         owl:inverseOf :OWLObjectProperty_bccb4597_1dcd_4309_9a2e_f99dbaa6c61c ;
+                                                        rdf:type owl:InverseFunctionalProperty ;
                                                         rdfs:domain :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
                                                         rdfs:range :OWLClass_fafedacb_1d58_487e_8aba_6d77d1a8bb03 ;
                                                         rdfs:label "utilizzaMetodologia"@en .
 
 
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9
+:OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9 rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                                        rdfs:range :OWLClass_08562063_df71_44d1_8083_262a50b893b5 ;
+                                                        rdfs:label "èCorrelatoA"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_4630d708_07e0_4e23_866f_552bdba15f0b
+:OWLObjectProperty_4630d708_07e0_4e23_866f_552bdba15f0b rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                                        rdfs:range :OWLClass_72eca0d1_cf6d_4340_a247_aa1b249dcd4b ;
+                                                        rdfs:label "èSoffertoDa"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_53cc26b9_7107_4e5d_976a_6b3ee0fe91c0
+:OWLObjectProperty_53cc26b9_7107_4e5d_976a_6b3ee0fe91c0 rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain :OWLClass_72eca0d1_cf6d_4340_a247_aa1b249dcd4b ;
+                                                        rdfs:range :OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72 ;
+                                                        rdfs:label "èInCuraDa"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_75888f6e_d87e_4fbf_b8c1_681bd460c348
+:OWLObjectProperty_75888f6e_d87e_4fbf_b8c1_681bd460c348 rdf:type owl:ObjectProperty ;
+                                                        owl:inverseOf :OWLObjectProperty_e0812f91_da10_4c28_a487_66811b456f05 ;
+                                                        rdf:type owl:InverseFunctionalProperty ;
+                                                        rdfs:domain :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                                        rdfs:range :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
+                                                        rdfs:label "èEfficaceUna"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_7e0c0f6c_049f_4e68_a2b3_646c8e022ff3
+:OWLObjectProperty_7e0c0f6c_049f_4e68_a2b3_646c8e022ff3 rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain :OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6 ;
+                                                        rdfs:range :OWLClass_bbab3e07_05eb_43f8_afa3_e3262e85494f ;
+                                                        rdfs:label "haEffetto"@en .
+
+
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_8273fd3d_6dbc_4302_ac9e_f2a1e68c62ae
 :OWLObjectProperty_8273fd3d_6dbc_4302_ac9e_f2a1e68c62ae rdf:type owl:ObjectProperty ;
                                                         owl:inverseOf :OWLObjectProperty_beae52b1_0158_4e5f_936f_dfbac975531b ;
+                                                        rdf:type owl:InverseFunctionalProperty ;
                                                         rdfs:domain :OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72 ;
                                                         rdfs:range :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
                                                         rdfs:label "svolge"@en .
 
 
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651
+:OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651 rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain :OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6 ;
+                                                        rdfs:range :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                                        rdfs:label "prescrittoPer"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_932155b1_1904_4cd9_9ae3_631a35d84c49
+:OWLObjectProperty_932155b1_1904_4cd9_9ae3_631a35d84c49 rdf:type owl:ObjectProperty ;
+                                                        owl:inverseOf :OWLObjectProperty_cd19a93f_e763_4d9d_9ce9_76d968cc4955 ;
+                                                        rdfs:domain :OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72 ;
+                                                        rdfs:range :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                                        rdfs:label "puòTrattareUn"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_93a71bf8_9ab3_465c_8f54_7de1c1108b11
+:OWLObjectProperty_93a71bf8_9ab3_465c_8f54_7de1c1108b11 rdf:type owl:ObjectProperty ;
+                                                        owl:inverseOf :OWLObjectProperty_cfe6c22b_021d_482d_98f2_4fb8f4175fcb ;
+                                                        rdf:type owl:InverseFunctionalProperty ;
+                                                        rdfs:domain :OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6 ;
+                                                        rdfs:range :OWLClass_eab9f1f3_5cd1_47fb_a049_4e0b95e2ccd4 ;
+                                                        rdfs:label "èUsatoIn"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_96efcd06_d9bc_4540_aae8_9499aeb9fc18
+:OWLObjectProperty_96efcd06_d9bc_4540_aae8_9499aeb9fc18 rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain :OWLClass_799b89df_138c_4517_bb7b_9f12fb0e79b6 ;
+                                                        rdfs:range :OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6 ;
+                                                        rdfs:label "prescrive"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_aafb885c_31a3_40d0_b36b_47fa3a3b568a
+:OWLObjectProperty_aafb885c_31a3_40d0_b36b_47fa3a3b568a rdf:type owl:ObjectProperty ,
+                                                                 owl:FunctionalProperty ;
+                                                        rdfs:domain :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                                        rdfs:range :OWLClass_a6b05446_2914_47c9_85ee_eca9f5865b8f ;
+                                                        rdfs:label "haGravità"@en .
+
+
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_bccb4597_1dcd_4309_9a2e_f99dbaa6c61c
-:OWLObjectProperty_bccb4597_1dcd_4309_9a2e_f99dbaa6c61c rdf:type owl:ObjectProperty ;
+:OWLObjectProperty_bccb4597_1dcd_4309_9a2e_f99dbaa6c61c rdf:type owl:ObjectProperty ,
+                                                                 owl:InverseFunctionalProperty ;
                                                         rdfs:domain :OWLClass_fafedacb_1d58_487e_8aba_6d77d1a8bb03 ;
                                                         rdfs:range :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
                                                         rdfs:label "metodologiaUtilizzataDa"@en .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_beae52b1_0158_4e5f_936f_dfbac975531b
-:OWLObjectProperty_beae52b1_0158_4e5f_936f_dfbac975531b rdf:type owl:ObjectProperty ;
+:OWLObjectProperty_beae52b1_0158_4e5f_936f_dfbac975531b rdf:type owl:ObjectProperty ,
+                                                                 owl:InverseFunctionalProperty ;
                                                         rdfs:domain :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
                                                         rdfs:range :OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72 ;
                                                         rdfs:label "èSvoltaDa"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_bebab739_1008_4d47_9055_76f2177a9c93
+:OWLObjectProperty_bebab739_1008_4d47_9055_76f2177a9c93 rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain :OWLClass_72eca0d1_cf6d_4340_a247_aa1b249dcd4b ;
+                                                        rdfs:range :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                                        rdfs:label "soffreDi"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_cd19a93f_e763_4d9d_9ce9_76d968cc4955
+:OWLObjectProperty_cd19a93f_e763_4d9d_9ce9_76d968cc4955 rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                                        rdfs:range :OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72 ;
+                                                        rdfs:label "puòEssereTrattatoDa"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_cfe6c22b_021d_482d_98f2_4fb8f4175fcb
+:OWLObjectProperty_cfe6c22b_021d_482d_98f2_4fb8f4175fcb rdf:type owl:ObjectProperty ,
+                                                                 owl:InverseFunctionalProperty ;
+                                                        rdfs:domain :OWLClass_eab9f1f3_5cd1_47fb_a049_4e0b95e2ccd4 ;
+                                                        rdfs:range :OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6 ;
+                                                        rdfs:label "faUsoDi"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLObjectProperty_e0812f91_da10_4c28_a487_66811b456f05
+:OWLObjectProperty_e0812f91_da10_4c28_a487_66811b456f05 rdf:type owl:ObjectProperty ,
+                                                                 owl:InverseFunctionalProperty ;
+                                                        rdfs:domain :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
+                                                        rdfs:range :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                                        rdfs:label "efficacePer"@en .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLDataProperty_cce032cc_2293_4908_8f61_aded6bf0daee
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLDataProperty_cce032cc_2293_4908_8f61_aded6bf0daee> rdf:type owl:DatatypeProperty ;
-                                                                                                            rdfs:label "èCronico"@en .
-
-
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLDataProperty_19d5abb2_28b2_4501_ab3a_5e0497b9ddcb
 :OWLDataProperty_19d5abb2_28b2_4501_ab3a_5e0497b9ddcb rdf:type owl:DatatypeProperty ;
                                                       rdfs:domain :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
-                                                      rdfs:range xsd:string ;
                                                       rdfs:label "haFrequenza"@en .
 
 
-###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLDataProperty_32cedb4e_dce2_4918_8296_b5fa5d10c415
-:OWLDataProperty_32cedb4e_dce2_4918_8296_b5fa5d10c415 rdf:type owl:DatatypeProperty ;
-                                                      rdfs:domain :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
-                                                      rdfs:range xsd:decimal ;
-                                                      rdfs:label "haTassoDiSuccesso"@en .
-
-
-###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLDataProperty_dd025f8d_3cc7_4e43_8e79_4797162e29e5
-:OWLDataProperty_dd025f8d_3cc7_4e43_8e79_4797162e29e5 rdf:type owl:DatatypeProperty ;
-                                                      rdfs:label "haDurata"@en .
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLDataProperty_cce032cc_2293_4908_8f61_aded6bf0daee
+:OWLDataProperty_cce032cc_2293_4908_8f61_aded6bf0daee rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                                      rdfs:range xsd:boolean ;
+                                                      rdfs:label "èCronico"@en .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_08562063_df71_44d1_8083_262a50b893b5
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_08562063_df71_44d1_8083_262a50b893b5> rdf:type owl:Class ;
-                                                                                                     rdfs:label "Correlazione"@en .
+###  http://ontology.apa.org/apaonto/Drugs
+<http://ontology.apa.org/apaonto/Drugs> rdf:type owl:Class ;
+                                        owl:equivalentClass :OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6 ;
+                                        rdfs:label "Drug"@en .
 
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_1be2bcba_c02d_456d_9b74_2daddc69c128
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_1be2bcba_c02d_456d_9b74_2daddc69c128> rdf:type owl:Class ;
-                                                                                                     rdfs:subClassOf <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_08562063_df71_44d1_8083_262a50b893b5> ;
-                                                                                                     rdfs:label "Personalità"@en .
+###  http://ontology.apa.org/apaonto/Drug_Therapy#OWLClass_072ed0e7_4436_44ca_9b04_6cd2972f258e
+<http://ontology.apa.org/apaonto/Drug_Therapy#OWLClass_072ed0e7_4436_44ca_9b04_6cd2972f258e> rdf:type owl:Class ;
+                                                                                             owl:equivalentClass :OWLClass_0ea9091e_3271_47fc_925b_41c985f4a1b5 ;
+                                                                                             rdfs:label "DrugTherapy"@en .
 
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_2e2ea6b2_11ef_438e_952b_53e2c1fee159
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_2e2ea6b2_11ef_438e_952b_53e2c1fee159> rdf:type owl:Class ;
-                                                                                                     rdfs:subClassOf <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_a6b05446_2914_47c9_85ee_eca9f5865b8f> ;
-                                                                                                     rdfs:label "Lieve"@en .
+###  http://purl.bioontology.org/ontology/SNOMEDCT/74732009
+<http://purl.bioontology.org/ontology/SNOMEDCT/74732009> rdf:type owl:Class ;
+                                                         owl:equivalentClass :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                                         rdfs:label "MentalDisorder"@en .
 
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_36c55cde_809a_4108_87ec_798f4ed7b20c
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_36c55cde_809a_4108_87ec_798f4ed7b20c> rdf:type owl:Class ;
-                                                                                                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                                                                           owl:onProperty :OWLObjectProperty_8273fd3d_6dbc_4302_ac9e_f2a1e68c62ae ;
-                                                                                                                           owl:someValuesFrom :OWLClass_b382cb5c_9484_4958_998a_7fc2190a8de4
-                                                                                                                         ] ;
-                                                                                                     rdfs:subClassOf :OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72 ;
-                                                                                                     rdfs:label "PsicoterapeutaCorporeo"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_6733ca58_c4f0_4c9a_9d37_89216026420c
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_6733ca58_c4f0_4c9a_9d37_89216026420c> rdf:type owl:Class ;
-                                                                                                     rdfs:subClassOf <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_08562063_df71_44d1_8083_262a50b893b5> ;
-                                                                                                     rdfs:label "Umore"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_67e1f314_d950_4589_a4f3_2dbd2d74593e
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_67e1f314_d950_4589_a4f3_2dbd2d74593e> rdf:type owl:Class ;
-                                                                                                     rdfs:subClassOf <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_08562063_df71_44d1_8083_262a50b893b5> ;
-                                                                                                     rdfs:label "Psicotico"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_7ab754ba_7739_4751_b58d_2fd77913f4bf
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_7ab754ba_7739_4751_b58d_2fd77913f4bf> rdf:type owl:Class ;
-                                                                                                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                                                                           owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9> ;
-                                                                                                                           owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_1be2bcba_c02d_456d_9b74_2daddc69c128>
-                                                                                                                         ] ;
-                                                                                                     rdfs:subClassOf :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
-                                                                                                     rdfs:label "DisturboDiPersonalità"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_8728b544_d499_4b88_bbad_8a7e031c0d37
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_8728b544_d499_4b88_bbad_8a7e031c0d37> rdf:type owl:Class ;
-                                                                                                     rdfs:subClassOf <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_bbab3e07_05eb_43f8_afa3_e3262e85494f> ;
-                                                                                                     rdfs:label "Neurolettico"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_8a2396bc_7b1b_474d_9240_4d0cc2c040de
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_8a2396bc_7b1b_474d_9240_4d0cc2c040de> rdf:type owl:Class ;
-                                                                                                     rdfs:subClassOf <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_08562063_df71_44d1_8083_262a50b893b5> ;
-                                                                                                     rdfs:label "Ansia"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_a6b05446_2914_47c9_85ee_eca9f5865b8f
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_a6b05446_2914_47c9_85ee_eca9f5865b8f> rdf:type owl:Class ;
-                                                                                                     rdfs:label "Gravità"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_b6aff267_99b7_43dd_bea4_8ed51986db94
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_b6aff267_99b7_43dd_bea4_8ed51986db94> rdf:type owl:Class ;
-                                                                                                     rdfs:subClassOf <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_bbab3e07_05eb_43f8_afa3_e3262e85494f> ;
-                                                                                                     rdfs:label "StabilizzatoreDelloUmore"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6> rdf:type owl:Class ;
-                                                                                                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                                                                           owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651> ;
-                                                                                                                           owl:someValuesFrom :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78
-                                                                                                                         ] ;
-                                                                                                     rdfs:label "Medicinale"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_bbab3e07_05eb_43f8_afa3_e3262e85494f
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_bbab3e07_05eb_43f8_afa3_e3262e85494f> rdf:type owl:Class ;
-                                                                                                     rdfs:label "Effetto"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_c4037e57_f41e_4dcb_8f17_83b7e3c00889
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_c4037e57_f41e_4dcb_8f17_83b7e3c00889> rdf:type owl:Class ;
-                                                                                                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                                                                           owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9> ;
-                                                                                                                           owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_67e1f314_d950_4589_a4f3_2dbd2d74593e>
-                                                                                                                         ] ;
-                                                                                                     rdfs:subClassOf :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
-                                                                                                     rdfs:label "DisturboPsicotico"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_d28bb33c_d12d_4d2c_8c7d_2e0c64642a1d
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_d28bb33c_d12d_4d2c_8c7d_2e0c64642a1d> rdf:type owl:Class ;
-                                                                                                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                                                                           owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9> ;
-                                                                                                                           owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_6733ca58_c4f0_4c9a_9d37_89216026420c>
-                                                                                                                         ] ;
-                                                                                                     rdfs:subClassOf :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
-                                                                                                     rdfs:label "DisturboDelloUmore"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_d52358b5_19cb_42b4_b574_ff6c1f8a8ed0
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_d52358b5_19cb_42b4_b574_ff6c1f8a8ed0> rdf:type owl:Class ;
-                                                                                                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                                                                           owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9> ;
-                                                                                                                           owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_8a2396bc_7b1b_474d_9240_4d0cc2c040de>
-                                                                                                                         ] ;
-                                                                                                     rdfs:subClassOf :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
-                                                                                                     rdfs:label "DisturboDiAnsia"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_dd832549_85f8_4084_b3b7_75ff98a8f1b5
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_dd832549_85f8_4084_b3b7_75ff98a8f1b5> rdf:type owl:Class ;
-                                                                                                     rdfs:subClassOf <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_08562063_df71_44d1_8083_262a50b893b5> ;
-                                                                                                     rdfs:label "Psicosomatico"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_dfd57ac5_7baf_4b7a_823d_3c6a89dd80c8
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_dfd57ac5_7baf_4b7a_823d_3c6a89dd80c8> rdf:type owl:Class ;
-                                                                                                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                                                                           owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9> ;
-                                                                                                                           owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_dd832549_85f8_4084_b3b7_75ff98a8f1b5>
-                                                                                                                         ] ;
-                                                                                                     rdfs:subClassOf :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
-                                                                                                     rdfs:label "DisturboPsicosomatico"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_e118569d_b474_4ad6_b2cb_b6e530583e3d
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_e118569d_b474_4ad6_b2cb_b6e530583e3d> rdf:type owl:Class ;
-                                                                                                     rdfs:subClassOf <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_bbab3e07_05eb_43f8_afa3_e3262e85494f> ;
-                                                                                                     rdfs:label "Sedativo"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_f5cd89b0_e2d8_4da6_a1f0_7195cc628c09
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_f5cd89b0_e2d8_4da6_a1f0_7195cc628c09> rdf:type owl:Class ;
-                                                                                                     rdfs:subClassOf <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_a6b05446_2914_47c9_85ee_eca9f5865b8f> ;
-                                                                                                     rdfs:label "Grave"@en .
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_08562063_df71_44d1_8083_262a50b893b5
+:OWLClass_08562063_df71_44d1_8083_262a50b893b5 rdf:type owl:Class ;
+                                               rdfs:label "Correlazione"@en .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_0ea9091e_3271_47fc_925b_41c985f4a1b5
@@ -308,80 +240,108 @@
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_1391a6a5_61a1_4a55_9039_a19c68192479
 :OWLClass_1391a6a5_61a1_4a55_9039_a19c68192479 rdf:type owl:Class ;
                                                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_7e0c0f6c_049f_4e68_a2b3_646c8e022ff3> ;
-                                                                     owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_8728b544_d499_4b88_bbad_8a7e031c0d37>
+                                                                     owl:onProperty :OWLObjectProperty_7e0c0f6c_049f_4e68_a2b3_646c8e022ff3 ;
+                                                                     owl:someValuesFrom :OWLClass_8728b544_d499_4b88_bbad_8a7e031c0d37
                                                                    ] ,
                                                                    [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651> ;
-                                                                     owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_c4037e57_f41e_4dcb_8f17_83b7e3c00889>
+                                                                     owl:onProperty :OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651 ;
+                                                                     owl:someValuesFrom :OWLClass_c4037e57_f41e_4dcb_8f17_83b7e3c00889
                                                                    ] ;
-                                               rdfs:subClassOf <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6> ;
+                                               rdfs:subClassOf :OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6 ;
                                                rdfs:label "Antipsicotici"@en .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16
 :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 rdf:type owl:Class ;
                                                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_e0812f91_da10_4c28_a487_66811b456f05> ;
-                                                                     owl:someValuesFrom :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78
-                                                                   ] ,
-                                                                   [ rdf:type owl:Restriction ;
                                                                      owl:onProperty :OWLObjectProperty_28bf07f2_ce0f_4a60_8cd6_15431d9dd52b ;
                                                                      owl:someValuesFrom :OWLClass_fafedacb_1d58_487e_8aba_6d77d1a8bb03
                                                                    ] ,
                                                                    [ rdf:type owl:Restriction ;
                                                                      owl:onProperty :OWLObjectProperty_beae52b1_0158_4e5f_936f_dfbac975531b ;
                                                                      owl:someValuesFrom :OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72
+                                                                   ] ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_e0812f91_da10_4c28_a487_66811b456f05 ;
+                                                                     owl:someValuesFrom :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78
                                                                    ] ;
-                                               rdfs:label "Terapia"@en ;
-                                               <http://www.w3.org/2004/02/skos/core#closeMatch> "http://snomed.info/id/277132007" .
+                                               rdfs:label "Terapia"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_1be2bcba_c02d_456d_9b74_2daddc69c128
+:OWLClass_1be2bcba_c02d_456d_9b74_2daddc69c128 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_08562063_df71_44d1_8083_262a50b893b5 ;
+                                               rdfs:label "Personalità"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_21ce2006_dc09_4b36_88ec_a0db088d0ac1
+:OWLClass_21ce2006_dc09_4b36_88ec_a0db088d0ac1 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_55ef1bae_6f45_4187_8e43_116c4116b302 ;
+                                               rdfs:label "TerapiaPsicodinamica"@en .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_26a745af_d8a0_4ade_8a4a_66f9ac522a73
 :OWLClass_26a745af_d8a0_4ade_8a4a_66f9ac522a73 rdf:type owl:Class ;
                                                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_7e0c0f6c_049f_4e68_a2b3_646c8e022ff3> ;
-                                                                     owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_b6aff267_99b7_43dd_bea4_8ed51986db94>
+                                                                     owl:onProperty :OWLObjectProperty_7e0c0f6c_049f_4e68_a2b3_646c8e022ff3 ;
+                                                                     owl:someValuesFrom :OWLClass_b6aff267_99b7_43dd_bea4_8ed51986db94
                                                                    ] ,
                                                                    [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651> ;
-                                                                     owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_d28bb33c_d12d_4d2c_8c7d_2e0c64642a1d>
+                                                                     owl:onProperty :OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651 ;
+                                                                     owl:someValuesFrom :OWLClass_d28bb33c_d12d_4d2c_8c7d_2e0c64642a1d
                                                                    ] ;
-                                               rdfs:subClassOf <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6> ;
+                                               rdfs:subClassOf :OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6 ;
                                                rdfs:label "Antidepressivi"@en .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_33f7b954_a05a_4203_8406_c906205b8a78
 :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 rdf:type owl:Class ;
                                                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9> ;
-                                                                     owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_08562063_df71_44d1_8083_262a50b893b5>
+                                                                     owl:onProperty :OWLObjectProperty_260d2dab_8e39_4a8c_b25e_15719e92254b ;
+                                                                     owl:someValuesFrom :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78
                                                                    ] ,
                                                                    [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_75888f6e_d87e_4fbf_b8c1_681bd460c348> ;
+                                                                     owl:onProperty :OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9 ;
+                                                                     owl:someValuesFrom :OWLClass_08562063_df71_44d1_8083_262a50b893b5
+                                                                   ] ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_4630d708_07e0_4e23_866f_552bdba15f0b ;
+                                                                     owl:someValuesFrom :OWLClass_72eca0d1_cf6d_4340_a247_aa1b249dcd4b
+                                                                   ] ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_75888f6e_d87e_4fbf_b8c1_681bd460c348 ;
                                                                      owl:someValuesFrom :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16
                                                                    ] ,
                                                                    [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_aafb885c_31a3_40d0_b36b_47fa3a3b568a> ;
-                                                                     owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_a6b05446_2914_47c9_85ee_eca9f5865b8f>
+                                                                     owl:onProperty :OWLObjectProperty_aafb885c_31a3_40d0_b36b_47fa3a3b568a ;
+                                                                     owl:someValuesFrom :OWLClass_a6b05446_2914_47c9_85ee_eca9f5865b8f
+                                                                   ] ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_cd19a93f_e763_4d9d_9ce9_76d968cc4955 ;
+                                                                     owl:someValuesFrom :OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72
                                                                    ] ;
+                                               owl:disjointUnionOf ( :OWLClass_7ab754ba_7739_4751_b58d_2fd77913f4bf
+                                                                     :OWLClass_c4037e57_f41e_4dcb_8f17_83b7e3c00889
+                                                                     :OWLClass_d28bb33c_d12d_4d2c_8c7d_2e0c64642a1d
+                                                                     :OWLClass_d52358b5_19cb_42b4_b574_ff6c1f8a8ed0
+                                                                     :OWLClass_dfd57ac5_7baf_4b7a_823d_3c6a89dd80c8
+                                                                   ) ;
                                                rdfs:label "Disturbo"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_36c55cde_809a_4108_87ec_798f4ed7b20c
+:OWLClass_36c55cde_809a_4108_87ec_798f4ed7b20c rdf:type owl:Class ;
+                                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_8273fd3d_6dbc_4302_ac9e_f2a1e68c62ae ;
+                                                                     owl:someValuesFrom :OWLClass_b382cb5c_9484_4958_998a_7fc2190a8de4
+                                                                   ] ;
+                                               rdfs:subClassOf :OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72 ;
+                                               rdfs:label "PsicoterapeutaCorporeo"@en .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_55ef1bae_6f45_4187_8e43_116c4116b302
 :OWLClass_55ef1bae_6f45_4187_8e43_116c4116b302 rdf:type owl:Class ;
                                                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_8b69438b_dec8_48fa_af4d_076a057000db> ;
-                                                                     owl:someValuesFrom [ owl:intersectionOf ( :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78
-                                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                                 owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_aafb885c_31a3_40d0_b36b_47fa3a3b568a> ;
-                                                                                                                 owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_2e2ea6b2_11ef_438e_952b_53e2c1fee159>
-                                                                                                               ]
-                                                                                                             ) ;
-                                                                                          rdf:type owl:Class
-                                                                                        ]
-                                                                   ] ,
-                                                                   [ rdf:type owl:Restriction ;
                                                                      owl:onProperty :OWLObjectProperty_28bf07f2_ce0f_4a60_8cd6_15431d9dd52b ;
                                                                      owl:someValuesFrom :OWLClass_7dc31567_874c_445c_92a6_b3edbc9a4960
                                                                    ] ,
@@ -391,6 +351,18 @@
                                                                    ] ;
                                                rdfs:subClassOf :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
                                                rdfs:label "Psicoterapia"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_6733ca58_c4f0_4c9a_9d37_89216026420c
+:OWLClass_6733ca58_c4f0_4c9a_9d37_89216026420c rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_08562063_df71_44d1_8083_262a50b893b5 ;
+                                               rdfs:label "Umore"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_67e1f314_d950_4589_a4f3_2dbd2d74593e
+:OWLClass_67e1f314_d950_4589_a4f3_2dbd2d74593e rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_08562063_df71_44d1_8083_262a50b893b5 ;
+                                               rdfs:label "Psicotico"@en .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_7179ac28_07c5_42c6_8015_ab025968f8bf
@@ -403,28 +375,58 @@
                                                rdfs:label "PsicoterapeutaVerbale"@en .
 
 
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_72eca0d1_cf6d_4340_a247_aa1b249dcd4b
+:OWLClass_72eca0d1_cf6d_4340_a247_aa1b249dcd4b rdf:type owl:Class ;
+                                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_53cc26b9_7107_4e5d_976a_6b3ee0fe91c0 ;
+                                                                     owl:someValuesFrom :OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72
+                                                                   ] ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_bebab739_1008_4d47_9055_76f2177a9c93 ;
+                                                                     owl:someValuesFrom :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78
+                                                                   ] ;
+                                               rdfs:label "Paziente"@en .
+
+
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72
 :OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72 rdf:type owl:Class ;
                                                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_26970676_f426_49aa_a669_415ab4bec00d ;
+                                                                     owl:someValuesFrom :OWLClass_72eca0d1_cf6d_4340_a247_aa1b249dcd4b
+                                                                   ] ,
+                                                                   [ rdf:type owl:Restriction ;
                                                                      owl:onProperty :OWLObjectProperty_8273fd3d_6dbc_4302_ac9e_f2a1e68c62ae ;
                                                                      owl:someValuesFrom :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16
+                                                                   ] ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_932155b1_1904_4cd9_9ae3_631a35d84c49 ;
+                                                                     owl:someValuesFrom :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78
                                                                    ] ;
-                                               rdfs:comment "Da chiedere a professoressa" ;
                                                rdfs:label "ProfessionistaSanitario"@en .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_799b89df_138c_4517_bb7b_9f12fb0e79b6
 :OWLClass_799b89df_138c_4517_bb7b_9f12fb0e79b6 rdf:type owl:Class ;
                                                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_96efcd06_d9bc_4540_aae8_9499aeb9fc18> ;
-                                                                     owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6>
-                                                                   ] ,
-                                                                   [ rdf:type owl:Restriction ;
                                                                      owl:onProperty :OWLObjectProperty_8273fd3d_6dbc_4302_ac9e_f2a1e68c62ae ;
                                                                      owl:someValuesFrom :OWLClass_eab9f1f3_5cd1_47fb_a049_4e0b95e2ccd4
+                                                                   ] ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_96efcd06_d9bc_4540_aae8_9499aeb9fc18 ;
+                                                                     owl:someValuesFrom :OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6
                                                                    ] ;
                                                rdfs:subClassOf :OWLClass_73860ad6_3055_41ae_a6c3_05d7f4ec6c72 ;
                                                rdfs:label "Psichiatra"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_7ab754ba_7739_4751_b58d_2fd77913f4bf
+:OWLClass_7ab754ba_7739_4751_b58d_2fd77913f4bf rdf:type owl:Class ;
+                                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9 ;
+                                                                     owl:someValuesFrom :OWLClass_1be2bcba_c02d_456d_9b74_2daddc69c128
+                                                                   ] ;
+                                               rdfs:subClassOf :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                               rdfs:label "DisturboDiPersonalità"@en .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_7dc31567_874c_445c_92a6_b3edbc9a4960
@@ -437,69 +439,161 @@
                                                rdfs:label "Verbale"@en .
 
 
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_8728b544_d499_4b88_bbad_8a7e031c0d37
+:OWLClass_8728b544_d499_4b88_bbad_8a7e031c0d37 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_bbab3e07_05eb_43f8_afa3_e3262e85494f ;
+                                               rdfs:label "Neurolettico"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_8a2396bc_7b1b_474d_9240_4d0cc2c040de
+:OWLClass_8a2396bc_7b1b_474d_9240_4d0cc2c040de rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_08562063_df71_44d1_8083_262a50b893b5 ;
+                                               rdfs:label "Ansia"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_a6b05446_2914_47c9_85ee_eca9f5865b8f
+:OWLClass_a6b05446_2914_47c9_85ee_eca9f5865b8f rdf:type owl:Class ;
+                                               owl:equivalentClass [ rdf:type owl:Class ;
+                                                                     owl:oneOf ( :OWLNamedIndividual_2cc00739_dc99_4a84_af10_78beab2e40b4
+                                                                                 :OWLNamedIndividual_46cf61f4_c2ce_4b4e_85de_78f2da9122bb
+                                                                               )
+                                                                   ] ;
+                                               rdfs:label "Gravità"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_accdc57b_fe8c_4ff6_9cc4_61ba0e34a5b4
+:OWLClass_accdc57b_fe8c_4ff6_9cc4_61ba0e34a5b4 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_55ef1bae_6f45_4187_8e43_116c4116b302 ;
+                                               rdfs:label "TerapiaCognitivoComportamentale"@en .
+
+
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_b382cb5c_9484_4958_998a_7fc2190a8de4
 :OWLClass_b382cb5c_9484_4958_998a_7fc2190a8de4 rdf:type owl:Class ;
                                                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_8b69438b_dec8_48fa_af4d_076a057000db> ;
-                                                                     owl:someValuesFrom [ owl:intersectionOf ( :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78
-                                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                                 owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_aafb885c_31a3_40d0_b36b_47fa3a3b568a> ;
-                                                                                                                 owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_2e2ea6b2_11ef_438e_952b_53e2c1fee159>
-                                                                                                               ]
-                                                                                                             ) ;
-                                                                                          rdf:type owl:Class
-                                                                                        ]
-                                                                   ] ,
-                                                                   [ rdf:type owl:Restriction ;
                                                                      owl:onProperty :OWLObjectProperty_28bf07f2_ce0f_4a60_8cd6_15431d9dd52b ;
                                                                      owl:someValuesFrom :OWLClass_f4100f29_7112_445d_a8c0_a39cb9d83b5e
                                                                    ] ,
                                                                    [ rdf:type owl:Restriction ;
                                                                      owl:onProperty :OWLObjectProperty_beae52b1_0158_4e5f_936f_dfbac975531b ;
-                                                                     owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_36c55cde_809a_4108_87ec_798f4ed7b20c>
+                                                                     owl:someValuesFrom :OWLClass_36c55cde_809a_4108_87ec_798f4ed7b20c
                                                                    ] ;
                                                rdfs:subClassOf :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
                                                rdfs:label "TerapiaCorporea"@en .
 
 
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_b6aff267_99b7_43dd_bea4_8ed51986db94
+:OWLClass_b6aff267_99b7_43dd_bea4_8ed51986db94 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_bbab3e07_05eb_43f8_afa3_e3262e85494f ;
+                                               rdfs:label "StabilizzatoreDelloUmore"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6
+:OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6 rdf:type owl:Class ;
+                                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_7e0c0f6c_049f_4e68_a2b3_646c8e022ff3 ;
+                                                                     owl:someValuesFrom :OWLClass_bbab3e07_05eb_43f8_afa3_e3262e85494f
+                                                                   ] ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651 ;
+                                                                     owl:someValuesFrom :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78
+                                                                   ] ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_93a71bf8_9ab3_465c_8f54_7de1c1108b11 ;
+                                                                     owl:someValuesFrom :OWLClass_eab9f1f3_5cd1_47fb_a049_4e0b95e2ccd4
+                                                                   ] ;
+                                               rdfs:label "Medicinale"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_bbab3e07_05eb_43f8_afa3_e3262e85494f
+:OWLClass_bbab3e07_05eb_43f8_afa3_e3262e85494f rdf:type owl:Class ;
+                                               rdfs:label "Effetto"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_c4037e57_f41e_4dcb_8f17_83b7e3c00889
+:OWLClass_c4037e57_f41e_4dcb_8f17_83b7e3c00889 rdf:type owl:Class ;
+                                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9 ;
+                                                                     owl:someValuesFrom :OWLClass_67e1f314_d950_4589_a4f3_2dbd2d74593e
+                                                                   ] ;
+                                               rdfs:subClassOf :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                               rdfs:label "DisturboPsicotico"@en .
+
+
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_c428d9a9_68a9_4157_9235_db2ac0c51335
 :OWLClass_c428d9a9_68a9_4157_9235_db2ac0c51335 rdf:type owl:Class ;
                                                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_7e0c0f6c_049f_4e68_a2b3_646c8e022ff3> ;
-                                                                     owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_e118569d_b474_4ad6_b2cb_b6e530583e3d>
+                                                                     owl:onProperty :OWLObjectProperty_7e0c0f6c_049f_4e68_a2b3_646c8e022ff3 ;
+                                                                     owl:someValuesFrom :OWLClass_e118569d_b474_4ad6_b2cb_b6e530583e3d
                                                                    ] ,
                                                                    [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651> ;
-                                                                     owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_d52358b5_19cb_42b4_b574_ff6c1f8a8ed0>
+                                                                     owl:onProperty :OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651 ;
+                                                                     owl:someValuesFrom :OWLClass_d52358b5_19cb_42b4_b574_ff6c1f8a8ed0
                                                                    ] ;
-                                               rdfs:subClassOf <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6> ;
+                                               rdfs:subClassOf :OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6 ;
                                                rdfs:label "Ansiolitici"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_d28bb33c_d12d_4d2c_8c7d_2e0c64642a1d
+:OWLClass_d28bb33c_d12d_4d2c_8c7d_2e0c64642a1d rdf:type owl:Class ;
+                                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9 ;
+                                                                     owl:someValuesFrom :OWLClass_6733ca58_c4f0_4c9a_9d37_89216026420c
+                                                                   ] ;
+                                               rdfs:subClassOf :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                               rdfs:label "DisturboDelloUmore"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_d52358b5_19cb_42b4_b574_ff6c1f8a8ed0
+:OWLClass_d52358b5_19cb_42b4_b574_ff6c1f8a8ed0 rdf:type owl:Class ;
+                                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9 ;
+                                                                     owl:someValuesFrom :OWLClass_8a2396bc_7b1b_474d_9240_4d0cc2c040de
+                                                                   ] ;
+                                               rdfs:subClassOf :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                               rdfs:label "DisturboDiAnsia"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_dc21ea73_99fc_4c28_9f04_963959b351d6
+:OWLClass_dc21ea73_99fc_4c28_9f04_963959b351d6 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_55ef1bae_6f45_4187_8e43_116c4116b302 ;
+                                               rdfs:label "TerapiaSistemicoRelazionale"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_dd832549_85f8_4084_b3b7_75ff98a8f1b5
+:OWLClass_dd832549_85f8_4084_b3b7_75ff98a8f1b5 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_08562063_df71_44d1_8083_262a50b893b5 ;
+                                               rdfs:label "Psicosomatico"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_dfd57ac5_7baf_4b7a_823d_3c6a89dd80c8
+:OWLClass_dfd57ac5_7baf_4b7a_823d_3c6a89dd80c8 rdf:type owl:Class ;
+                                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9 ;
+                                                                     owl:someValuesFrom :OWLClass_dd832549_85f8_4084_b3b7_75ff98a8f1b5
+                                                                   ] ;
+                                               rdfs:subClassOf :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78 ;
+                                               rdfs:label "DisturboPsicosomatico"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_e118569d_b474_4ad6_b2cb_b6e530583e3d
+:OWLClass_e118569d_b474_4ad6_b2cb_b6e530583e3d rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_bbab3e07_05eb_43f8_afa3_e3262e85494f ;
+                                               rdfs:label "Sedativo"@en .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLClass_eab9f1f3_5cd1_47fb_a049_4e0b95e2ccd4
 :OWLClass_eab9f1f3_5cd1_47fb_a049_4e0b95e2ccd4 rdf:type owl:Class ;
                                                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_8b69438b_dec8_48fa_af4d_076a057000db> ;
-                                                                     owl:someValuesFrom [ owl:intersectionOf ( :OWLClass_33f7b954_a05a_4203_8406_c906205b8a78
-                                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                                 owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_aafb885c_31a3_40d0_b36b_47fa3a3b568a> ;
-                                                                                                                 owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_f5cd89b0_e2d8_4da6_a1f0_7195cc628c09>
-                                                                                                               ]
-                                                                                                             ) ;
-                                                                                          rdf:type owl:Class
-                                                                                        ]
-                                                                   ] ,
-                                                                   [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_cfe6c22b_021d_482d_98f2_4fb8f4175fcb> ;
-                                                                     owl:someValuesFrom <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6>
-                                                                   ] ,
-                                                                   [ rdf:type owl:Restriction ;
                                                                      owl:onProperty :OWLObjectProperty_28bf07f2_ce0f_4a60_8cd6_15431d9dd52b ;
                                                                      owl:someValuesFrom :OWLClass_0ea9091e_3271_47fc_925b_41c985f4a1b5
                                                                    ] ,
                                                                    [ rdf:type owl:Restriction ;
                                                                      owl:onProperty :OWLObjectProperty_beae52b1_0158_4e5f_936f_dfbac975531b ;
                                                                      owl:someValuesFrom :OWLClass_799b89df_138c_4517_bb7b_9f12fb0e79b6
+                                                                   ] ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :OWLObjectProperty_cfe6c22b_021d_482d_98f2_4fb8f4175fcb ;
+                                                                     owl:someValuesFrom :OWLClass_baedf9d2_68fd_453a_834f_b19fbff752b6
                                                                    ] ;
                                                rdfs:subClassOf :OWLClass_171b3c5e_cd32_4ab0_a265_846fe9077a16 ;
                                                rdfs:label "TerapiaFarmacologica"@en .
@@ -528,67 +622,53 @@
 #    Individuals
 #################################################################
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_1086dc7c_ea06_4a74_8bc7_8f189b4a7cfc
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_1086dc7c_ea06_4a74_8bc7_8f189b4a7cfc> rdf:type owl:NamedIndividual ,
-                                                                                                                        <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_e118569d_b474_4ad6_b2cb_b6e530583e3d> ;
-                                                                                                               rdfs:label "Sedativo"@en .
+###  http://purl.bioontology.org/ontology/SNOMEDCT#OWLNamedIndividual_ff994030_3519_426c_979e_310492bc60e9
+<http://purl.bioontology.org/ontology/SNOMEDCT#OWLNamedIndividual_ff994030_3519_426c_979e_310492bc60e9> rdf:type owl:NamedIndividual ;
+                                                                                                        :OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9 :OWLNamedIndividual_b7d5f188_bc8f_4641_b590_3906cf165a7c ;
+                                                                                                        rdfs:label "Paura di uscire"@en .
 
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_47dcbadb_833c_4949_b1dd_fb3eebc80416
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_47dcbadb_833c_4949_b1dd_fb3eebc80416> rdf:type owl:NamedIndividual ;
-                                                                                                               <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_7e0c0f6c_049f_4e68_a2b3_646c8e022ff3> <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_1086dc7c_ea06_4a74_8bc7_8f189b4a7cfc> ;
-                                                                                                               <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651> <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_8525868e_1ba7_43a8_8643_a22f6929e923> ;
-                                                                                                               rdfs:label "Lorazepam"@en .
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLNamedIndividual_092e1018_3e90_4af2_ab7a_d79b128d92f1
+:OWLNamedIndividual_092e1018_3e90_4af2_ab7a_d79b128d92f1 rdf:type owl:NamedIndividual ;
+                                                         :OWLObjectProperty_932155b1_1904_4cd9_9ae3_631a35d84c49 :OWLNamedIndividual_18e24a7e_77df_4e6e_9ca3_a3f4b38eb892 ;
+                                                         rdfs:label "Francesco Rossi"@en .
 
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_4b15a375_a5c3_4762_bb98_d6ede60d66fa
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_4b15a375_a5c3_4762_bb98_d6ede60d66fa> rdf:type owl:NamedIndividual ,
-                                                                                                                        <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_f5cd89b0_e2d8_4da6_a1f0_7195cc628c09> ;
-                                                                                                               rdfs:label "Grave"@en .
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLNamedIndividual_18e24a7e_77df_4e6e_9ca3_a3f4b38eb892
+:OWLNamedIndividual_18e24a7e_77df_4e6e_9ca3_a3f4b38eb892 rdf:type owl:NamedIndividual ;
+                                                         :OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9 :OWLNamedIndividual_b7d5f188_bc8f_4641_b590_3906cf165a7c ;
+                                                         rdfs:label "Ansia generalizzata"@en .
 
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_79491c24_b85a_4a50_846d_ac4355f58dff
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_79491c24_b85a_4a50_846d_ac4355f58dff> rdf:type owl:NamedIndividual ;
-                                                                                                               <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9> <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_8525868e_1ba7_43a8_8643_a22f6929e923> ;
-                                                                                                               rdfs:label "Tristezza persistente"@en .
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLNamedIndividual_2cc00739_dc99_4a84_af10_78beab2e40b4
+:OWLNamedIndividual_2cc00739_dc99_4a84_af10_78beab2e40b4 rdf:type owl:NamedIndividual ,
+                                                                  :OWLClass_a6b05446_2914_47c9_85ee_eca9f5865b8f ;
+                                                         rdfs:label "Lieve"@en .
 
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_8525868e_1ba7_43a8_8643_a22f6929e923
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_8525868e_1ba7_43a8_8643_a22f6929e923> rdf:type owl:NamedIndividual ,
-                                                                                                                        <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_8a2396bc_7b1b_474d_9240_4d0cc2c040de> ;
-                                                                                                               rdfs:label "Ansia"@en .
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLNamedIndividual_46cf61f4_c2ce_4b4e_85de_78f2da9122bb
+:OWLNamedIndividual_46cf61f4_c2ce_4b4e_85de_78f2da9122bb rdf:type owl:NamedIndividual ,
+                                                                  :OWLClass_a6b05446_2914_47c9_85ee_eca9f5865b8f ;
+                                                         rdfs:label "Grave"@en .
 
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_86fb1418_12a8_4ad3_9114_b88b5cacebd2
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_86fb1418_12a8_4ad3_9114_b88b5cacebd2> rdf:type owl:NamedIndividual ,
-                                                                                                                        :OWLClass_799b89df_138c_4517_bb7b_9f12fb0e79b6 ;
-                                                                                                               <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_96efcd06_d9bc_4540_aae8_9499aeb9fc18> <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_eaedb9d9_c405_489e_a048_6b6a496c180f> ;
-                                                                                                               rdfs:label "Lorenzo Rossi"@en .
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLNamedIndividual_5b04ce6d_cecb_49cb_8ff2_ae50d9fab62d
+:OWLNamedIndividual_5b04ce6d_cecb_49cb_8ff2_ae50d9fab62d rdf:type owl:NamedIndividual ,
+                                                                  :OWLClass_55ef1bae_6f45_4187_8e43_116c4116b302 ;
+                                                         rdfs:label "Psicoterapia_1"@en .
 
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_aec042be_7290_46e4_88d6_ad1c57e7a1d3
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_aec042be_7290_46e4_88d6_ad1c57e7a1d3> rdf:type owl:NamedIndividual ;
-                                                                                                               rdfs:label "Paura Intensa"@en .
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLNamedIndividual_b7d5f188_bc8f_4641_b590_3906cf165a7c
+:OWLNamedIndividual_b7d5f188_bc8f_4641_b590_3906cf165a7c rdf:type owl:NamedIndividual ,
+                                                                  :OWLClass_8a2396bc_7b1b_474d_9240_4d0cc2c040de ;
+                                                         rdfs:label "Ansia"@en .
 
 
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_d4fa97c9_367e_4954_9f09_e0ba21a0058a
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_d4fa97c9_367e_4954_9f09_e0ba21a0058a> rdf:type owl:NamedIndividual ,
-                                                                                                                        <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLClass_2e2ea6b2_11ef_438e_952b_53e2c1fee159> ;
-                                                                                                               rdfs:label "Lieve"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_e3db2570_ef55_4968_9b9d_9813296a7e17
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_e3db2570_ef55_4968_9b9d_9813296a7e17> rdf:type owl:NamedIndividual ;
-                                                                                                               <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_4512fa4c_6416_4996_8d82_a40b5a2576d9> <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_8525868e_1ba7_43a8_8643_a22f6929e923> ;
-                                                                                                               rdfs:label "Sbalzi di Umore"@en .
-
-
-###  http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_eaedb9d9_c405_489e_a048_6b6a496c180f
-<http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_eaedb9d9_c405_489e_a048_6b6a496c180f> rdf:type owl:NamedIndividual ,
-                                                                                                                        :OWLClass_c428d9a9_68a9_4157_9235_db2ac0c51335 ;
-                                                                                                               <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_7e0c0f6c_049f_4e68_a2b3_646c8e022ff3> <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_1086dc7c_ea06_4a74_8bc7_8f189b4a7cfc> ;
-                                                                                                               <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLObjectProperty_87a819b6_e299_4b18_bf7c_75fd9b8cf651> <http://purl.bioontology.org/ontology/ICD10/F00-F99.9#OWLNamedIndividual_8525868e_1ba7_43a8_8643_a22f6929e923> ;
-                                                                                                               rdfs:label "Diazepam"@en .
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLNamedIndividual_cc22cea2_e9ac_4757_868b_5b1a600cd9c8
+:OWLNamedIndividual_cc22cea2_e9ac_4757_868b_5b1a600cd9c8 rdf:type owl:NamedIndividual ,
+                                                                  :OWLClass_72eca0d1_cf6d_4340_a247_aa1b249dcd4b ;
+                                                         :OWLObjectProperty_bebab739_1008_4d47_9055_76f2177a9c93 :OWLNamedIndividual_18e24a7e_77df_4e6e_9ca3_a3f4b38eb892 ;
+                                                         rdfs:label "Antonio Bianchi"@en .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

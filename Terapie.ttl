@@ -9,14 +9,18 @@
 @prefix apaonto: <http://ontology.apa.org/apaonto#> .
 @base <http://www.semanticweb.org/santo/ontologies/2025/0/> .
 
-<http://www.semanticweb.org/santo/ontologies/Terapie> rdf:type owl:Ontology ;
-                                                       owl:imports <http://example.org/myontology> ;
-                                                       <http://purl.org/vocab/vann/preferredNamespacePrefix> "terapie:" ;
-                                                       <http://purl.org/vocab/vann/preferredNamespaceUri> "http://www.semanticweb.org/santo/ontologies/Terapie" .
+<http://www.semanticweb.org/santo/ontologies/2025/0> rdf:type owl:Ontology ;
+                                                      owl:imports <http://example.org/myontology> ;
+                                                      <http://purl.org/vocab/vann/preferredNamespacePrefix> "terapie:" ;
+                                                      <http://purl.org/vocab/vann/preferredNamespaceUri> "http://www.semanticweb.org/santo/ontologies/Terapie" .
 
 #################################################################
 #    Annotation properties
 #################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
 
 ###  http://www.w3.org/2004/02/skos/core#closeMatch
 skos:closeMatch rdf:type owl:AnnotationProperty .
@@ -31,8 +35,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/collegatoA
-:collegatoA rdf:type owl:ObjectProperty ,
-                     owl:IrreflexiveProperty ;
+:collegatoA rdf:type owl:ObjectProperty ;
             rdfs:domain :Disturbo ;
             rdfs:range :Disturbo ;
             rdfs:label "collegatoA"@en .
@@ -624,7 +627,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 
 ###  http://ontology.apa.org/apaonto/Drug_Therapy#Ansia_sociale
 <http://ontology.apa.org/apaonto/Drug_Therapy#Ansia_sociale> rdf:type owl:NamedIndividual ;
-                                                             :haGravità :Lieve ;
+                                                             :collegatoA :Ansia_generalizzata ;
                                                              :èCorrelatoA :Ansia ;
                                                              rdfs:label "Ansia sociale"@en .
 
@@ -736,6 +739,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Ansia_generalizzata
 :Ansia_generalizzata rdf:type owl:NamedIndividual ;
+                     :collegatoA <http://ontology.apa.org/apaonto/Drug_Therapy#Ansia_sociale> ;
                      :èCorrelatoA :Ansia ;
                      rdfs:label "Ansia generalizzata"@en .
 
@@ -748,7 +752,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Francesco_Rossi
 :Francesco_Rossi rdf:type owl:NamedIndividual ;
-                 :puòTrattareUn :Ansia ;
+                 :puòTrattareUn :Ansia_generalizzata ;
                  rdfs:label "Francesco Rossi"@en .
 
 
@@ -766,7 +770,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Psicoterapia_1
 :Psicoterapia_1 rdf:type owl:NamedIndividual ;
-                :efficacePer <http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDiAnsia> ;
+                :efficacePer :Ansia_generalizzata ;
                 :utilizzaMetodologia <http://ontology.apa.org/apaonto/Drug_Therapy#Verbale> ;
                 rdfs:label "Psicoterapia_1"@en .
 
@@ -777,5 +781,162 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 
 :Ansia rdfs:label "Ansia"@en .
 
+
+#################################################################
+#    Rules
+#################################################################
+
+:d rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:ps rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:d2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:d1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:t rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:p rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S2" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Disturbo ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :d
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :ProfessionistaSanitario ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :ps
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :puòEssereTrattatoDa ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :ps
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#classPredicate> :Disturbo ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :d2
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :collegatoA ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :d1 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :d2
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :puòEssereTrattatoDa ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :d2 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :ps
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S3" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Terapia ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :t
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :Disturbo ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :d
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :efficacePer ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :t ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#classPredicate> :Disturbo ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :d2
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :collegatoA ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :d2
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :efficacePer ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :t ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :d2
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S1" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Paziente ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :p
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :Disturbo ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :d
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :soffreDi ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :p ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#classPredicate> :ProfessionistaSanitario ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :ps
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :puòTrattareUn ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :ps ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :haInCura ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :ps ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :p
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

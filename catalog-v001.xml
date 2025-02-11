@@ -3,6 +3,6 @@
     <uri id="Imports Wizard Entry" name="http://example.org/myontology" uri="imports.owl"/>
     <uri id="Imports Wizard Entry" name="http://example.org/myontology" uri="imports.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1739201523469" name="http://www.semanticweb.org/santo/ontologies/2025/0/" uri="Terapies2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1739282618519" name="http://www.semanticweb.org/santo/ontologies/2025/0/" uri="Terapie_RDF.owl"/>
     </group>
 </catalog>

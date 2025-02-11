@@ -1,0 +1,781 @@
+@prefix : <http://www.semanticweb.org/santo/ontologies/2025/0/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix snomed: <http://purl.bioontology.org/ontology/SNOMEDCT> .
+@prefix apaonto: <http://ontology.apa.org/apaonto#> .
+@base <http://www.semanticweb.org/santo/ontologies/2025/0/> .
+
+<http://www.semanticweb.org/santo/ontologies/Terapie> rdf:type owl:Ontology ;
+                                                       owl:imports <http://example.org/myontology> ;
+                                                       <http://purl.org/vocab/vann/preferredNamespacePrefix> "terapie:" ;
+                                                       <http://purl.org/vocab/vann/preferredNamespaceUri> "http://www.semanticweb.org/santo/ontologies/Terapie" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#closeMatch
+skos:closeMatch rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#exactMatch
+skos:exactMatch rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/collegatoA
+:collegatoA rdf:type owl:ObjectProperty ,
+                     owl:IrreflexiveProperty ;
+            rdfs:domain :Disturbo ;
+            rdfs:range :Disturbo ;
+            rdfs:label "collegatoA"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/efficacePer
+:efficacePer rdf:type owl:ObjectProperty ;
+             owl:inverseOf :èEfficaceUna ;
+             rdf:type owl:InverseFunctionalProperty ;
+             rdfs:domain :Terapia ;
+             rdfs:range :Disturbo ;
+             rdfs:label "efficacePer"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/faUsoDi
+:faUsoDi rdf:type owl:ObjectProperty ;
+         owl:inverseOf :èUsatoIn ;
+         rdf:type owl:InverseFunctionalProperty ;
+         rdfs:domain :TerapiaFarmacologica ;
+         rdfs:range :Medicinale ;
+         rdfs:label "faUsoDi"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/haEffetto
+:haEffetto rdf:type owl:ObjectProperty ;
+           rdfs:domain :Medicinale ;
+           rdfs:range :Effetto ;
+           rdfs:label "haEffetto"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/haGravità
+:haGravità rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :Disturbo ;
+           rdfs:range :Gravità ;
+           rdfs:label "haGravità"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/haInCura
+:haInCura rdf:type owl:ObjectProperty ;
+          rdfs:domain :ProfessionistaSanitario ;
+          rdfs:range :Paziente ;
+          rdfs:label "haInCura"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/metodologiaUtilizzataDa
+:metodologiaUtilizzataDa rdf:type owl:ObjectProperty ;
+                         owl:inverseOf :utilizzaMetodologia ;
+                         rdf:type owl:InverseFunctionalProperty ;
+                         rdfs:domain :Metodologia ;
+                         rdfs:range :Terapia ;
+                         rdfs:label "metodologiaUtilizzataDa"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/prescrittoPer
+:prescrittoPer rdf:type owl:ObjectProperty ;
+               rdfs:domain :Medicinale ;
+               rdfs:range :Disturbo ;
+               rdfs:label "prescrittoPer"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/prescrive
+:prescrive rdf:type owl:ObjectProperty ;
+           rdfs:domain :Psichiatra ;
+           rdfs:range :Medicinale ;
+           rdfs:label "prescrive"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/puòEssereTrattatoDa
+:puòEssereTrattatoDa rdf:type owl:ObjectProperty ;
+                     owl:inverseOf :puòTrattareUn ;
+                     rdfs:domain :Disturbo ;
+                     rdfs:range :ProfessionistaSanitario ;
+                     rdfs:label "puòEssereTrattatoDa"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/puòTrattareUn
+:puòTrattareUn rdf:type owl:ObjectProperty ;
+               rdfs:domain :ProfessionistaSanitario ;
+               rdfs:range :Disturbo ;
+               rdfs:label "puòTrattareUn"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/soffreDi
+:soffreDi rdf:type owl:ObjectProperty ;
+          rdfs:domain :Paziente ;
+          rdfs:range :Disturbo ;
+          rdfs:label "soffreDi"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/svolge
+:svolge rdf:type owl:ObjectProperty ;
+        owl:inverseOf :èSvoltaDa ;
+        rdf:type owl:InverseFunctionalProperty ;
+        rdfs:domain :ProfessionistaSanitario ;
+        rdfs:range :Terapia ;
+        rdfs:label "svolge"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/utilizzaMetodologia
+:utilizzaMetodologia rdf:type owl:ObjectProperty ,
+                              owl:InverseFunctionalProperty ;
+                     rdfs:domain :Terapia ;
+                     rdfs:range :Metodologia ;
+                     rdfs:label "utilizzaMetodologia"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/èCorrelatoA
+:èCorrelatoA rdf:type owl:ObjectProperty ;
+             rdfs:domain :Disturbo ;
+             rdfs:range :Correlazione ;
+             rdfs:label "èCorrelatoA"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/èEfficaceUna
+:èEfficaceUna rdf:type owl:ObjectProperty ,
+                       owl:InverseFunctionalProperty ;
+              rdfs:domain :Disturbo ;
+              rdfs:range :Terapia ;
+              rdfs:label "èEfficaceUna"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/èInCuraDa
+:èInCuraDa rdf:type owl:ObjectProperty ;
+           rdfs:domain :Paziente ;
+           rdfs:range :ProfessionistaSanitario ;
+           rdfs:label "èInCuraDa"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/èSoffertoDa
+:èSoffertoDa rdf:type owl:ObjectProperty ;
+             rdfs:domain :Disturbo ;
+             rdfs:range :Paziente ;
+             rdfs:label "èSoffertoDa"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/èSvoltaDa
+:èSvoltaDa rdf:type owl:ObjectProperty ,
+                    owl:InverseFunctionalProperty ;
+           rdfs:domain :Terapia ;
+           rdfs:range :ProfessionistaSanitario ;
+           rdfs:label "èSvoltaDa"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/èUsatoIn
+:èUsatoIn rdf:type owl:ObjectProperty ,
+                   owl:InverseFunctionalProperty ;
+          rdfs:domain :Medicinale ;
+          rdfs:range :TerapiaFarmacologica ;
+          rdfs:label "èUsatoIn"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLDataProperty_19d5abb2_28b2_4501_ab3a_5e0497b9ddcb
+:OWLDataProperty_19d5abb2_28b2_4501_ab3a_5e0497b9ddcb rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain :Terapia ;
+                                                      rdfs:label "haFrequenza"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLDataProperty_cce032cc_2293_4908_8f61_aded6bf0daee
+:OWLDataProperty_cce032cc_2293_4908_8f61_aded6bf0daee rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain :Disturbo ;
+                                                      rdfs:range xsd:boolean ;
+                                                      rdfs:label "èCronico"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ontology.apa.org/apaonto/Drugs
+<http://ontology.apa.org/apaonto/Drugs> rdf:type owl:Class ;
+                                        owl:equivalentClass :Medicinale ;
+                                        rdfs:label "Drug"@en .
+
+
+###  http://purl.bioontology.org/ontology/SNOMEDCT/74732009
+<http://purl.bioontology.org/ontology/SNOMEDCT/74732009> rdf:type owl:Class ;
+                                                         owl:equivalentClass :Disturbo ;
+                                                         rdfs:label "MentalDisorder"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Ansia
+:Ansia rdf:type owl:Class ;
+       rdfs:subClassOf :Correlazione .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Ansiolitici
+:Ansiolitici rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty :haEffetto ;
+                                   owl:someValuesFrom :Sedativo
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :prescrittoPer ;
+                                   owl:someValuesFrom :DisturboDiAnsia
+                                 ] ;
+             rdfs:subClassOf :Medicinale ;
+             rdfs:label "Ansiolitici"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Antidepressivi
+:Antidepressivi rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty :haEffetto ;
+                                      owl:someValuesFrom :StabilizzatoreDelloUmore
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :prescrittoPer ;
+                                      owl:someValuesFrom :DisturboDelloUmore
+                                    ] ;
+                rdfs:subClassOf :Medicinale ;
+                rdfs:label "Antidepressivi"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Antipsicotici
+:Antipsicotici rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :haEffetto ;
+                                     owl:someValuesFrom :Neurolettico
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :prescrittoPer ;
+                                     owl:someValuesFrom :DisturboPsicotico
+                                   ] ;
+               rdfs:subClassOf :Medicinale ;
+               rdfs:label "Antipsicotici"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Corporea
+:Corporea rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :metodologiaUtilizzataDa ;
+                                owl:someValuesFrom :TerapiaCorporea
+                              ] ;
+          rdfs:subClassOf :Metodologia ;
+          rdfs:label "Corporea"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Correlazione
+:Correlazione rdf:type owl:Class ;
+              rdfs:label "Correlazione"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo
+:Disturbo rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :collegatoA ;
+                                owl:someValuesFrom :Disturbo
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :haGravità ;
+                                owl:someValuesFrom :Gravità
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :puòEssereTrattatoDa ;
+                                owl:someValuesFrom :ProfessionistaSanitario
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :èCorrelatoA ;
+                                owl:someValuesFrom :Correlazione
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :èEfficaceUna ;
+                                owl:someValuesFrom :Terapia
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :èSoffertoDa ;
+                                owl:someValuesFrom :Paziente
+                              ] ;
+          owl:disjointUnionOf ( :DisturboDellaPersonalità
+                                :DisturboDelloUmore
+                                :DisturboDiAnsia
+                                :DisturboPsicosomatico
+                                :DisturboPsicotico
+                              ) ;
+          rdfs:label "Disturbo"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDellaPersonalità
+:DisturboDellaPersonalità rdf:type owl:Class ;
+                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                owl:onProperty :èCorrelatoA ;
+                                                owl:someValuesFrom :Personalità
+                                              ] ;
+                          rdfs:subClassOf :Disturbo ;
+                          rdfs:label "DisturboDiPersonalità"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDelloUmore
+:DisturboDelloUmore rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :èCorrelatoA ;
+                                          owl:someValuesFrom :Umore
+                                        ] ;
+                    rdfs:subClassOf :Disturbo ;
+                    rdfs:label "DisturboDelloUmore"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDiAnsia
+:DisturboDiAnsia rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :èCorrelatoA ;
+                                       owl:someValuesFrom :Ansia
+                                     ] ;
+                 rdfs:subClassOf :Disturbo ;
+                 rdfs:label "DisturboDiAnsia"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/DisturboPsicosomatico
+:DisturboPsicosomatico rdf:type owl:Class ;
+                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                             owl:onProperty :èCorrelatoA ;
+                                             owl:someValuesFrom :Psicosomatico
+                                           ] ;
+                       rdfs:subClassOf :Disturbo ;
+                       rdfs:label "DisturboPsicosomatico"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/DisturboPsicotico
+:DisturboPsicotico rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty :èCorrelatoA ;
+                                         owl:someValuesFrom :Psicotico
+                                       ] ;
+                   rdfs:subClassOf :Disturbo ;
+                   rdfs:label "DisturboPsicotico"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Effetto
+:Effetto rdf:type owl:Class ;
+         rdfs:label "Effetto"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Farmacologica
+:Farmacologica rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :metodologiaUtilizzataDa ;
+                                     owl:someValuesFrom :TerapiaFarmacologica
+                                   ] ;
+               rdfs:subClassOf :Metodologia ;
+               rdfs:label "Farmacologica"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Gravità
+:Gravità rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Class ;
+                               owl:oneOf ( :Grave
+                                           :Lieve
+                                         )
+                             ] ;
+         rdfs:label "Gravità"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale
+:Medicinale rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :haEffetto ;
+                                  owl:someValuesFrom :Effetto
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :prescrittoPer ;
+                                  owl:someValuesFrom :Disturbo
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :èUsatoIn ;
+                                  owl:someValuesFrom :TerapiaFarmacologica
+                                ] ;
+            rdfs:label "Medicinale"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Metodologia
+:Metodologia rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty :metodologiaUtilizzataDa ;
+                                   owl:someValuesFrom :Terapia
+                                 ] ;
+             rdfs:label "Metodologia"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Neurolettico
+:Neurolettico rdf:type owl:Class ;
+              rdfs:subClassOf :Effetto ;
+              rdfs:label "Neurolettico"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Paziente
+:Paziente rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :soffreDi ;
+                                owl:someValuesFrom :Disturbo
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :èInCuraDa ;
+                                owl:someValuesFrom :ProfessionistaSanitario
+                              ] ;
+          rdfs:label "Paziente"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Personalità
+:Personalità rdf:type owl:Class ;
+             rdfs:subClassOf :Correlazione ;
+             rdfs:label "Personalità"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario
+:ProfessionistaSanitario rdf:type owl:Class ;
+                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                               owl:onProperty :haInCura ;
+                                               owl:someValuesFrom :Paziente
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :puòTrattareUn ;
+                                               owl:someValuesFrom :Disturbo
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :svolge ;
+                                               owl:someValuesFrom :Terapia
+                                             ] ;
+                         rdfs:label "ProfessionistaSanitario"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Psichiatra
+:Psichiatra rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :prescrive ;
+                                  owl:someValuesFrom :Medicinale
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :svolge ;
+                                  owl:someValuesFrom :TerapiaFarmacologica
+                                ] ;
+            rdfs:subClassOf :ProfessionistaSanitario ;
+            rdfs:label "Psichiatra"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Psicosomatico
+:Psicosomatico rdf:type owl:Class ;
+               rdfs:subClassOf :Correlazione ;
+               rdfs:label "Psicosomatico"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/PsicoterapeutaCorporeo
+:PsicoterapeutaCorporeo rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                              owl:onProperty :svolge ;
+                                              owl:someValuesFrom :TerapiaCorporea
+                                            ] ;
+                        rdfs:subClassOf :ProfessionistaSanitario ;
+                        rdfs:label "PsicoterapeutaCorporeo"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/PsicoterapeutaVerbale
+:PsicoterapeutaVerbale rdf:type owl:Class ;
+                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                             owl:onProperty :svolge ;
+                                             owl:someValuesFrom :Psicoterapia
+                                           ] ;
+                       rdfs:subClassOf :ProfessionistaSanitario ;
+                       rdfs:label "PsicoterapeutaVerbale"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Psicoterapia
+:Psicoterapia rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                    owl:onProperty :utilizzaMetodologia ;
+                                    owl:someValuesFrom :Verbale
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :èSvoltaDa ;
+                                    owl:someValuesFrom :PsicoterapeutaVerbale
+                                  ] ;
+              rdfs:subClassOf :Terapia ;
+              rdfs:label "Psicoterapia"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Psicotico
+:Psicotico rdf:type owl:Class ;
+           rdfs:subClassOf :Correlazione ;
+           rdfs:label "Psicotico"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Sedativo
+:Sedativo rdf:type owl:Class ;
+          rdfs:subClassOf :Effetto ;
+          rdfs:label "Sedativo"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/StabilizzatoreDelloUmore
+:StabilizzatoreDelloUmore rdf:type owl:Class ;
+                          rdfs:subClassOf :Effetto ;
+                          rdfs:label "StabilizzatoreDelloUmore"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Terapia
+:Terapia rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty :efficacePer ;
+                               owl:someValuesFrom :Disturbo
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :utilizzaMetodologia ;
+                               owl:someValuesFrom :Metodologia
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :èSvoltaDa ;
+                               owl:someValuesFrom :ProfessionistaSanitario
+                             ] ;
+         rdfs:label "Terapia"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaCognitivoComportamentale
+:TerapiaCognitivoComportamentale rdf:type owl:Class ;
+                                 rdfs:subClassOf :Psicoterapia ;
+                                 rdfs:label "TerapiaCognitivoComportamentale"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaCorporea
+:TerapiaCorporea rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :utilizzaMetodologia ;
+                                       owl:someValuesFrom :Corporea
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :èSvoltaDa ;
+                                       owl:someValuesFrom :PsicoterapeutaCorporeo
+                                     ] ;
+                 rdfs:subClassOf :Terapia ;
+                 rdfs:label "TerapiaCorporea"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaFarmacologica
+:TerapiaFarmacologica rdf:type owl:Class ;
+                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                            owl:onProperty :faUsoDi ;
+                                            owl:someValuesFrom :Medicinale
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :utilizzaMetodologia ;
+                                            owl:someValuesFrom :Farmacologica
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :èSvoltaDa ;
+                                            owl:someValuesFrom :Psichiatra
+                                          ] ;
+                      rdfs:subClassOf :Terapia ;
+                      rdfs:label "TerapiaFarmacologica"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaPsicodinamica
+:TerapiaPsicodinamica rdf:type owl:Class ;
+                      rdfs:subClassOf :Psicoterapia ;
+                      rdfs:label "TerapiaPsicodinamica"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaSistemicoRelazionale
+:TerapiaSistemicoRelazionale rdf:type owl:Class ;
+                             rdfs:subClassOf :Psicoterapia ;
+                             rdfs:label "TerapiaSistemicoRelazionale"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Umore
+:Umore rdf:type owl:Class ;
+       rdfs:subClassOf :Correlazione ;
+       rdfs:label "Umore"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Verbale
+:Verbale rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty :metodologiaUtilizzataDa ;
+                               owl:someValuesFrom :Psicoterapia
+                             ] ;
+         rdfs:subClassOf :Metodologia ;
+         rdfs:label "Verbale"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#Alessandro_Verdi
+<http://ontology.apa.org/apaonto/Drug_Therapy#Alessandro_Verdi> rdf:type owl:NamedIndividual ;
+                                                                rdfs:label "Alessandro Verdi"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#Ansia_sociale
+<http://ontology.apa.org/apaonto/Drug_Therapy#Ansia_sociale> rdf:type owl:NamedIndividual ;
+                                                             :haGravità :Lieve ;
+                                                             :èCorrelatoA :Ansia ;
+                                                             rdfs:label "Ansia sociale"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#Cambio_repentino_di_emozioni
+<http://ontology.apa.org/apaonto/Drug_Therapy#Cambio_repentino_di_emozioni> rdf:type owl:NamedIndividual ;
+                                                                            :haGravità :Grave ;
+                                                                            :èCorrelatoA <http://ontology.apa.org/apaonto/Drug_Therapy#Umore> ;
+                                                                            rdfs:label "Cambio repentino di emozioni"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#Citalopram
+<http://ontology.apa.org/apaonto/Drug_Therapy#Citalopram> rdf:type owl:NamedIndividual ;
+                                                          :haEffetto <http://ontology.apa.org/apaonto/Drug_Therapy#StabilizzatoreDelloUmore> ;
+                                                          rdfs:label "Citalopram"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#Difficoltà_a_relazionarsi
+<http://ontology.apa.org/apaonto/Drug_Therapy#Difficoltà_a_relazionarsi> rdf:type owl:NamedIndividual ;
+                                                                         rdfs:label "Difficoltà a relazionarsi"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDelloUmore
+<http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDelloUmore> rdf:type owl:NamedIndividual ,
+                                                                           :DisturboDelloUmore ;
+                                                                  rdfs:label "DisturboDelloUmore"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDiAnsia
+<http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDiAnsia> rdf:type owl:NamedIndividual ,
+                                                                        :DisturboDiAnsia ;
+                                                               rdfs:label "DisturboDiAnsia"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDiPersonalità
+<http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDiPersonalità> rdf:type owl:NamedIndividual ,
+                                                                              :DisturboDellaPersonalità ;
+                                                                     rdfs:label "DisturboDiPersonalità"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#DisturboPsicosomatico
+<http://ontology.apa.org/apaonto/Drug_Therapy#DisturboPsicosomatico> rdf:type owl:NamedIndividual ,
+                                                                              :DisturboPsicosomatico ;
+                                                                     rdfs:label "DisturboPsicosomatico"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#DisturboPsicotico
+<http://ontology.apa.org/apaonto/Drug_Therapy#DisturboPsicotico> rdf:type owl:NamedIndividual ,
+                                                                          :DisturboPsicotico ;
+                                                                 rdfs:label "DisturboPsicotico"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#Farmacologica
+<http://ontology.apa.org/apaonto/Drug_Therapy#Farmacologica> rdf:type owl:NamedIndividual ;
+                                                             rdfs:label "Farmacologica"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#Mario_Cipriani
+<http://ontology.apa.org/apaonto/Drug_Therapy#Mario_Cipriani> rdf:type owl:NamedIndividual ;
+                                                              :puòTrattareUn <http://ontology.apa.org/apaonto/Drug_Therapy#Cambio_repentino_di_emozioni> ;
+                                                              rdfs:label "Mario Cipriani"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#Neurolettico
+<http://ontology.apa.org/apaonto/Drug_Therapy#Neurolettico> rdf:type owl:NamedIndividual ;
+                                                            rdfs:label "Neurolettico"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#Paroxetina
+<http://ontology.apa.org/apaonto/Drug_Therapy#Paroxetina> rdf:type owl:NamedIndividual ;
+                                                          :haEffetto <http://ontology.apa.org/apaonto/Drug_Therapy#StabilizzatoreDelloUmore> ;
+                                                          rdfs:label "Paroxetina"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#StabilizzatoreDelloUmore
+<http://ontology.apa.org/apaonto/Drug_Therapy#StabilizzatoreDelloUmore> rdf:type owl:NamedIndividual ;
+                                                                        rdfs:label "StabilizzatoreDelloUmore"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#Terapia_farmacologica_1
+<http://ontology.apa.org/apaonto/Drug_Therapy#Terapia_farmacologica_1> rdf:type owl:NamedIndividual ;
+                                                                       :efficacePer <http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDelloUmore> ;
+                                                                       :faUsoDi <http://ontology.apa.org/apaonto/Drug_Therapy#Paroxetina> ;
+                                                                       :utilizzaMetodologia <http://ontology.apa.org/apaonto/Drug_Therapy#Farmacologica> ;
+                                                                       rdfs:label "Terapia farmacologica_1"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#Umore
+<http://ontology.apa.org/apaonto/Drug_Therapy#Umore> rdf:type owl:NamedIndividual ,
+                                                              :Umore ;
+                                                     rdfs:label "Umore"@en .
+
+
+###  http://ontology.apa.org/apaonto/Drug_Therapy#Verbale
+<http://ontology.apa.org/apaonto/Drug_Therapy#Verbale> rdf:type owl:NamedIndividual ;
+                                                       rdfs:label "Verbale"@en .
+
+
+###  http://purl.bioontology.org/ontology/SNOMEDCT#Paura_di_uscire
+<http://purl.bioontology.org/ontology/SNOMEDCT#Paura_di_uscire> rdf:type owl:NamedIndividual ;
+                                                                :èCorrelatoA :Ansia ;
+                                                                rdfs:label "Paura di uscire"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Ansia
+:Ansia rdf:type owl:NamedIndividual ,
+                :Ansia .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Ansia_generalizzata
+:Ansia_generalizzata rdf:type owl:NamedIndividual ;
+                     :èCorrelatoA :Ansia ;
+                     rdfs:label "Ansia generalizzata"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Antonio_Bianchi
+:Antonio_Bianchi rdf:type owl:NamedIndividual ;
+                 :soffreDi :Ansia_generalizzata ;
+                 rdfs:label "Antonio Bianchi"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Francesco_Rossi
+:Francesco_Rossi rdf:type owl:NamedIndividual ;
+                 :puòTrattareUn :Ansia ;
+                 rdfs:label "Francesco Rossi"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Grave
+:Grave rdf:type owl:NamedIndividual ,
+                :Gravità ;
+       rdfs:label "Grave"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Lieve
+:Lieve rdf:type owl:NamedIndividual ,
+                :Gravità ;
+       rdfs:label "Lieve"@en .
+
+
+###  http://www.semanticweb.org/santo/ontologies/2025/0/Psicoterapia_1
+:Psicoterapia_1 rdf:type owl:NamedIndividual ;
+                :efficacePer <http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDiAnsia> ;
+                :utilizzaMetodologia <http://ontology.apa.org/apaonto/Drug_Therapy#Verbale> ;
+                rdfs:label "Psicoterapia_1"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:Ansia rdfs:label "Ansia"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

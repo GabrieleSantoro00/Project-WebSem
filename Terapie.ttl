@@ -211,6 +211,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 ###  http://purl.bioontology.org/ontology/SNOMEDCT/74732009
 <http://purl.bioontology.org/ontology/SNOMEDCT/74732009> rdf:type owl:Class ;
                                                          owl:equivalentClass :Disturbo ;
+                                                         rdfs:comment "La classe Mental Disorder è allineata alla classe Mental Disorder dell'ontologia Snomed, un'altra grande ontologia riferita al mondo psicologico e psichiatrico. In questo caso l'allineamento è stato fatto per mettere in correlazione il concetto di Disturbo con un'accezione sia psicologica che psichiatrica"@it ;
                                                          rdfs:label "MentalDisorder"@en .
 
 
@@ -230,6 +231,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                    owl:someValuesFrom :DisturboDiAnsia
                                  ] ;
              rdfs:subClassOf :Medicinale ;
+             rdfs:comment "La classe Ansiolitco modella il concetto di medicinale ansiolitico. Questi farmaci sono usati per trattare l'ansia e i disturbi correlati. Aiutano a ridurre la tensione e promuovono il rilassamento"@it ;
              rdfs:label "Ansiolitici"@it .
 
 
@@ -244,6 +246,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                       owl:someValuesFrom :DisturboDelloUmore
                                     ] ;
                 rdfs:subClassOf :Medicinale ;
+                rdfs:comment "La classe Antidepressivi modella il concetto di medicinale antidpressivo. Questi farmaci sono utilizzati per trattare la depressione e altri disturbi dell'umore. Aiutano a migliorare l'umore e ridurre i sintomi depressivi"@it ;
                 rdfs:label "Antidepressivi"@it .
 
 
@@ -258,6 +261,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                      owl:someValuesFrom :DisturboPsicotico
                                    ] ;
                rdfs:subClassOf :Medicinale ;
+               rdfs:comment "La classe Antipsicotici modella il concetto di medicinale antipsicotico. Questi farmaci sono prescritti per trattare disturbi psicotici come la schizofrenia e il disturbo bipolare. Aiutano a ridurre i sintomi psicotici come allucinazioni e deliri"@it ;
                rdfs:label "Antipsicotici"@it .
 
 
@@ -268,6 +272,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                 owl:someValuesFrom :TerapiaCorporea
                               ] ;
           rdfs:subClassOf :Metodologia ;
+          rdfs:comment "La classe Corporea modella il concetto di metodologia corporea, una tipo di psicoterapia che usata tecniche fisiche di vario tipo per gestire ad esempio disturbi di Ansia e PTSD."@it ;
           rdfs:label "Corporea"@it .
 
 
@@ -381,6 +386,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                      owl:someValuesFrom :TerapiaFarmacologica
                                    ] ;
                rdfs:subClassOf :Metodologia ;
+               rdfs:comment "La classe Farmacologica modella il concetto di metodologia farmacologica, quindi è riferita alla terapia psichiatrica che fa uso di medicinali con effetti di vario tipo per gestire disturbi"@it ;
                rdfs:label "Farmacologica"@it .
 
 
@@ -391,6 +397,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                            :Lieve
                                          )
                              ] ;
+         rdfs:comment "La classe Gravità è una classe enumerata che serve ad associare un qualche grado di gravità ad un disturbo di un paziente. In questo caso la gravità si riferisce alla percezione che il paziente ha dei suoi sintomi piuttosto che ad una scalta indicativa che un professionista sanitario può assegnare dopo una serie di colloqui."@it ;
          rdfs:label "Gravità"@it .
 
 
@@ -408,6 +415,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                   owl:onProperty :èUsatoIn ;
                                   owl:someValuesFrom :TerapiaFarmacologica
                                 ] ;
+            rdfs:comment "La classe Medicinale modella il concetto generale di farmaco psichiatrico ed è definita equivalentTo alla classe Drugs dell'ontologia esterna Apaonto."@it ;
             rdfs:label "Medicinale"@it .
 
 
@@ -417,6 +425,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                    owl:onProperty :metodologiaUtilizzataDa ;
                                    owl:someValuesFrom :Terapia
                                  ] ;
+             rdfs:comment "La classe Metodologia modella il concetto di metodologia di una terapia, è stata inserita per differenziare i tipi di terapia sia svolti da psicoterapeuti che da psichiatri. Nell'ontologia abbiamo tre principali metodologie, verbale, corporea e farmacologica"@it ;
              rdfs:label "Metodologia"@it .
 
 
@@ -621,6 +630,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                owl:someValuesFrom :Psicoterapia
                              ] ;
          rdfs:subClassOf :Metodologia ;
+         rdfs:comment "La classe Verbale modella il concetto di metodologia verbale, ovvero la generica psicoterapia che comporta colloqui e analisi dell'individuol dei suoi comportamenti e delle sue esperienze."@it ;
          rdfs:label "Verbale"@it .
 
 

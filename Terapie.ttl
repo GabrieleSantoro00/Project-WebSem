@@ -204,6 +204,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 ###  http://ontology.apa.org/apaonto/Drugs
 <http://ontology.apa.org/apaonto/Drugs> rdf:type owl:Class ;
                                         owl:equivalentClass :Medicinale ;
+                                        rdfs:comment "La classe Drug è allineata dall'ontologia Apaonto, più nel dettaglio alla classe Drugs. Apaonto è un'ontologia correlata al mondo della medicina psicologica e psichiatrica."@it ;
                                         rdfs:label "Drug"@en .
 
 
@@ -272,6 +273,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Correlazione
 :Correlazione rdf:type owl:Class ;
+              rdfs:comment "La classe correlazione serve a definire, in maniera rapida e diretta, la sfera a cui è associata una classe di disturbi"@it ;
               rdfs:label "Correlazione"@it .
 
 
@@ -307,6 +309,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                 :DisturboPsicosomatico
                                 :DisturboPsicotico
                               ) ;
+          rdfs:comment "La classe Disturbo serve a definire il concetto generale di disturbo psicologico/psichiatrico in maniera generica"@it ;
           rdfs:label "Disturbo"@it .
 
 
@@ -317,6 +320,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                                 owl:someValuesFrom :Personalità
                                               ] ;
                           rdfs:subClassOf :Disturbo ;
+                          rdfs:comment "La classe DisturboDellaPersonalità modella il concetto di disturbo psicologico/psichiatrico correlato alla sfera della personalità di un individuo"@it ;
                           rdfs:label "DisturboDiPersonalità"@it .
 
 
@@ -327,6 +331,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                           owl:someValuesFrom :Umore
                                         ] ;
                     rdfs:subClassOf :Disturbo ;
+                    rdfs:comment "La classe DisturboDelloUmore modella il concetto di disturbo psicologico/psichiatrico correlato alla sfera dell'umore di un individuo"@it ;
                     rdfs:label "DisturboDelloUmore"@it .
 
 
@@ -337,6 +342,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                        owl:someValuesFrom :Ansia
                                      ] ;
                  rdfs:subClassOf :Disturbo ;
+                 rdfs:comment "La classe DisturboDiAnsia modella il concetto di disturbo psicologico/psichiatrico correlato alla sfera dell'ansia di un individuo"@it ;
                  rdfs:label "DisturboDiAnsia"@it .
 
 
@@ -347,6 +353,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                              owl:someValuesFrom :Psicosomatico
                                            ] ;
                        rdfs:subClassOf :Disturbo ;
+                       rdfs:comment "La classe DisturboPsicosomatico modella il concetto di disturbo psicologico/psichiatrico correlato alla sfera dei dei sintomi psicosamatici di un individuo conseguenti ad un qualche problema psicologico/psichiatrico"@it ;
                        rdfs:label "DisturboPsicosomatico"@it .
 
 
@@ -357,11 +364,13 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                          owl:someValuesFrom :Psicotico
                                        ] ;
                    rdfs:subClassOf :Disturbo ;
+                   rdfs:comment "La classe DisturboPsicotico modella il concetto di disturbo psicologico/psichiatrico correlato alla sfera della psicosi di un individuo, concettualmente è un tipo disturbo naturalmente psicotico"@it ;
                    rdfs:label "DisturboPsicotico"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Effetto
 :Effetto rdf:type owl:Class ;
+         rdfs:comment "La classe Effetto serve a definire in maniera astratta alcuni dei possibile effetti di classi di medicinali utilizzati in campo psichiatrico. Nella seguente ontologia sono stati presi solo pochi principi psicoattivi delle prinicipali classi di medicinali esistenti."@it ;
          rdfs:label "Effetto"@it .
 
 
@@ -414,6 +423,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Neurolettico
 :Neurolettico rdf:type owl:Class ;
               rdfs:subClassOf :Effetto ;
+              rdfs:comment "La classe Neurolettico modella il concetto di effetto Neurolettico, Gli effetti neurolettici dei medicinali psichiatrici si riferiscono agli effetti che questi farmaci hanno sul sistema nervoso centrale, in particolare attraverso il blocco dei recettori della dopamina."@it ;
               rdfs:label "Neurolettico"@it .
 
 
@@ -433,6 +443,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Personalità
 :Personalità rdf:type owl:Class ;
              rdfs:subClassOf :Correlazione ;
+             rdfs:comment "La classe Personalità modella il concetto di personalità nella sua accezione più astratta e generica"@it ;
              rdfs:label "Personalità"@en .
 
 
@@ -470,6 +481,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Psicosomatico
 :Psicosomatico rdf:type owl:Class ;
                rdfs:subClassOf :Correlazione ;
+               rdfs:comment "La classe Psicosomatico modella il concetto di problema psicosomatico nella sua accezione più astratta e generica."@it ;
                rdfs:label "Psicosomatico"@en .
 
 
@@ -510,18 +522,21 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Psicotico
 :Psicotico rdf:type owl:Class ;
            rdfs:subClassOf :Correlazione ;
+           rdfs:comment "La classe Psicotico modella il concetto di psicotico nella sua accezione più astratta e generica"@it ;
            rdfs:label "Psicotico"@en .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Sedativo
 :Sedativo rdf:type owl:Class ;
           rdfs:subClassOf :Effetto ;
+          rdfs:comment "La classe Sedativo modella il concetto di sedativo.Gli effetti sedativi si riferiscono alla capacità di alcuni farmaci di indurre uno stato di calma, rilassamento o sonnolenza"@it ;
           rdfs:label "Sedativo"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/StabilizzatoreDelloUmore
 :StabilizzatoreDelloUmore rdf:type owl:Class ;
                           rdfs:subClassOf :Effetto ;
+                          rdfs:comment "La classe StabilizzatoreDelloUmore modella il concetto di stabilizzatore dell'umore. Gli stabilizzatori dell'umore sono una categoria di farmaci utilizzati principalmente per trattare il disturbo bipolare, una condizione caratterizzata da oscillazioni estreme dell'umore tra episodi di mania e depressione."@it ;
                           rdfs:label "StabilizzatoreDelloUmore"@it .
 
 
@@ -595,6 +610,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Umore
 :Umore rdf:type owl:Class ;
        rdfs:subClassOf :Correlazione ;
+       rdfs:comment "La classe Umore modella il concetto di umore nella sua accezione più astratta e generica"@it ;
        rdfs:label "Umore"@en .
 
 
@@ -772,7 +788,8 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 #    Annotations
 #################################################################
 
-:Ansia rdfs:label "Ansia"@en .
+:Ansia rdfs:comment "La classe Ansia modella il concetto di ansia nella sua accezione più astratta e generica"@it ;
+       rdfs:label "Ansia"@en .
 
 
 #################################################################

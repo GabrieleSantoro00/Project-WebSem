@@ -5,18 +5,23 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix snomed: <http://purl.bioontology.org/ontology/SNOMEDCT> .
 @prefix apaonto: <http://ontology.apa.org/apaonto#> .
 @base <http://www.semanticweb.org/santo/ontologies/2025/0/> .
 
 <http://www.semanticweb.org/santo/ontologies/2025/0> rdf:type owl:Ontology ;
                                                       owl:imports <http://example.org/myontology> ;
-                                                      <http://purl.org/vocab/vann/preferredNamespacePrefix> "terapie:" ;
-                                                      <http://purl.org/vocab/vann/preferredNamespaceUri> "http://www.semanticweb.org/santo/ontologies/Terapie" .
+                                                      vann:preferredNamespacePrefix "terapie:" ;
+                                                      vann:preferredNamespaceUri "http://www.semanticweb.org/santo/ontologies/Terapie" .
 
 #################################################################
 #    Annotation properties
 #################################################################
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
 
 ###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
@@ -237,7 +242,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                    owl:someValuesFrom :DisturboDiAnsia
                                  ] ;
              rdfs:subClassOf :Medicinale ;
-             rdfs:label "Ansiolitici"@en .
+             rdfs:label "Ansiolitici"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Antidepressivi
@@ -251,7 +256,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                       owl:someValuesFrom :DisturboDelloUmore
                                     ] ;
                 rdfs:subClassOf :Medicinale ;
-                rdfs:label "Antidepressivi"@en .
+                rdfs:label "Antidepressivi"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Antipsicotici
@@ -265,7 +270,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                      owl:someValuesFrom :DisturboPsicotico
                                    ] ;
                rdfs:subClassOf :Medicinale ;
-               rdfs:label "Antipsicotici"@en .
+               rdfs:label "Antipsicotici"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Corporea
@@ -275,12 +280,12 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                 owl:someValuesFrom :TerapiaCorporea
                               ] ;
           rdfs:subClassOf :Metodologia ;
-          rdfs:label "Corporea"@en .
+          rdfs:label "Corporea"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Correlazione
 :Correlazione rdf:type owl:Class ;
-              rdfs:label "Correlazione"@en .
+              rdfs:label "Correlazione"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo
@@ -315,7 +320,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                 :DisturboPsicosomatico
                                 :DisturboPsicotico
                               ) ;
-          rdfs:label "Disturbo"@en .
+          rdfs:label "Disturbo"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDellaPersonalità
@@ -325,7 +330,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                                 owl:someValuesFrom :Personalità
                                               ] ;
                           rdfs:subClassOf :Disturbo ;
-                          rdfs:label "DisturboDiPersonalità"@en .
+                          rdfs:label "DisturboDiPersonalità"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDelloUmore
@@ -335,7 +340,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                           owl:someValuesFrom :Umore
                                         ] ;
                     rdfs:subClassOf :Disturbo ;
-                    rdfs:label "DisturboDelloUmore"@en .
+                    rdfs:label "DisturboDelloUmore"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDiAnsia
@@ -345,7 +350,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                        owl:someValuesFrom :Ansia
                                      ] ;
                  rdfs:subClassOf :Disturbo ;
-                 rdfs:label "DisturboDiAnsia"@en .
+                 rdfs:label "DisturboDiAnsia"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/DisturboPsicosomatico
@@ -355,7 +360,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                              owl:someValuesFrom :Psicosomatico
                                            ] ;
                        rdfs:subClassOf :Disturbo ;
-                       rdfs:label "DisturboPsicosomatico"@en .
+                       rdfs:label "DisturboPsicosomatico"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/DisturboPsicotico
@@ -365,12 +370,12 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                          owl:someValuesFrom :Psicotico
                                        ] ;
                    rdfs:subClassOf :Disturbo ;
-                   rdfs:label "DisturboPsicotico"@en .
+                   rdfs:label "DisturboPsicotico"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Effetto
 :Effetto rdf:type owl:Class ;
-         rdfs:label "Effetto"@en .
+         rdfs:label "Effetto"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Farmacologica
@@ -380,7 +385,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                      owl:someValuesFrom :TerapiaFarmacologica
                                    ] ;
                rdfs:subClassOf :Metodologia ;
-               rdfs:label "Farmacologica"@en .
+               rdfs:label "Farmacologica"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Gravità
@@ -390,7 +395,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                            :Lieve
                                          )
                              ] ;
-         rdfs:label "Gravità"@en .
+         rdfs:label "Gravità"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale
@@ -407,7 +412,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                   owl:onProperty :èUsatoIn ;
                                   owl:someValuesFrom :TerapiaFarmacologica
                                 ] ;
-            rdfs:label "Medicinale"@en .
+            rdfs:label "Medicinale"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Metodologia
@@ -416,13 +421,13 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                    owl:onProperty :metodologiaUtilizzataDa ;
                                    owl:someValuesFrom :Terapia
                                  ] ;
-             rdfs:label "Metodologia"@en .
+             rdfs:label "Metodologia"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Neurolettico
 :Neurolettico rdf:type owl:Class ;
               rdfs:subClassOf :Effetto ;
-              rdfs:label "Neurolettico"@en .
+              rdfs:label "Neurolettico"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Paziente
@@ -435,7 +440,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                 owl:onProperty :èInCuraDa ;
                                 owl:someValuesFrom :ProfessionistaSanitario
                               ] ;
-          rdfs:label "Paziente"@en .
+          rdfs:label "Paziente"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Personalità
@@ -458,7 +463,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                                owl:onProperty :svolge ;
                                                owl:someValuesFrom :Terapia
                                              ] ;
-                         rdfs:label "ProfessionistaSanitario"@en .
+                         rdfs:label "ProfessionistaSanitario"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Psichiatra
@@ -472,7 +477,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                   owl:someValuesFrom :TerapiaFarmacologica
                                 ] ;
             rdfs:subClassOf :ProfessionistaSanitario ;
-            rdfs:label "Psichiatra"@en .
+            rdfs:label "Psichiatra"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Psicosomatico
@@ -488,7 +493,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                               owl:someValuesFrom :TerapiaCorporea
                                             ] ;
                         rdfs:subClassOf :ProfessionistaSanitario ;
-                        rdfs:label "PsicoterapeutaCorporeo"@en .
+                        rdfs:label "PsicoterapeutaCorporeo"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/PsicoterapeutaVerbale
@@ -498,7 +503,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                              owl:someValuesFrom :Psicoterapia
                                            ] ;
                        rdfs:subClassOf :ProfessionistaSanitario ;
-                       rdfs:label "PsicoterapeutaVerbale"@en .
+                       rdfs:label "PsicoterapeutaVerbale"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Psicoterapia
@@ -512,7 +517,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                     owl:someValuesFrom :PsicoterapeutaVerbale
                                   ] ;
               rdfs:subClassOf :Terapia ;
-              rdfs:label "Psicoterapia"@en .
+              rdfs:label "Psicoterapia"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Psicotico
@@ -524,13 +529,13 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Sedativo
 :Sedativo rdf:type owl:Class ;
           rdfs:subClassOf :Effetto ;
-          rdfs:label "Sedativo"@en .
+          rdfs:label "Sedativo"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/StabilizzatoreDelloUmore
 :StabilizzatoreDelloUmore rdf:type owl:Class ;
                           rdfs:subClassOf :Effetto ;
-                          rdfs:label "StabilizzatoreDelloUmore"@en .
+                          rdfs:label "StabilizzatoreDelloUmore"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Terapia
@@ -547,13 +552,13 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                owl:onProperty :èSvoltaDa ;
                                owl:someValuesFrom :ProfessionistaSanitario
                              ] ;
-         rdfs:label "Terapia"@en .
+         rdfs:label "Terapia"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaCognitivoComportamentale
 :TerapiaCognitivoComportamentale rdf:type owl:Class ;
                                  rdfs:subClassOf :Psicoterapia ;
-                                 rdfs:label "TerapiaCognitivoComportamentale"@en .
+                                 rdfs:label "TerapiaCognitivoComportamentale"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaCorporea
@@ -567,7 +572,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                        owl:someValuesFrom :PsicoterapeutaCorporeo
                                      ] ;
                  rdfs:subClassOf :Terapia ;
-                 rdfs:label "TerapiaCorporea"@en .
+                 rdfs:label "TerapiaCorporea"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaFarmacologica
@@ -585,19 +590,19 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                             owl:someValuesFrom :Psichiatra
                                           ] ;
                       rdfs:subClassOf :Terapia ;
-                      rdfs:label "TerapiaFarmacologica"@en .
+                      rdfs:label "TerapiaFarmacologica"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaPsicodinamica
 :TerapiaPsicodinamica rdf:type owl:Class ;
                       rdfs:subClassOf :Psicoterapia ;
-                      rdfs:label "TerapiaPsicodinamica"@en .
+                      rdfs:label "TerapiaPsicodinamica"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaSistemicoRelazionale
 :TerapiaSistemicoRelazionale rdf:type owl:Class ;
                              rdfs:subClassOf :Psicoterapia ;
-                             rdfs:label "TerapiaSistemicoRelazionale"@en .
+                             rdfs:label "TerapiaSistemicoRelazionale"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Umore
@@ -613,7 +618,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                owl:someValuesFrom :Psicoterapia
                              ] ;
          rdfs:subClassOf :Metodologia ;
-         rdfs:label "Verbale"@en .
+         rdfs:label "Verbale"@it .
 
 
 #################################################################

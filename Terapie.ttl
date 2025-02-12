@@ -214,8 +214,26 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                    owl:InverseFunctionalProperty ;
           rdfs:domain :Medicinale ;
           rdfs:range :TerapiaFarmacologica ;
-          rdfs:comment "Indica che un medicinale è utilizzata nella terapia famracologica, per differenziarla dalla terapia verbale o corporea"@it ;
           rdfs:label "èUsatoIn"@it .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  haEtà
+<haEtà> rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty ;
+        rdfs:domain :Paziente ;
+        rdfs:range xsd:nonNegativeInteger ;
+        rdfs:label "haEtà"@en .
+
+
+###  èCronico
+<èCronico> rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Disturbo ;
+           rdfs:range xsd:boolean ;
+           rdfs:label "èCronico"@en .
 
 
 #################################################################
@@ -673,13 +691,17 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 
 ###  http://ontology.apa.org/apaonto/Drug_Therapy#Alessandro_Verdi
 <http://ontology.apa.org/apaonto/Drug_Therapy#Alessandro_Verdi> rdf:type owl:NamedIndividual ;
+                                                                :soffreDi <http://ontology.apa.org/apaonto/Drug_Therapy#Cambio_repentino_di_emozioni> ;
+                                                                <haEtà> 32 ;
                                                                 rdfs:label "Alessandro Verdi"@en .
 
 
 ###  http://ontology.apa.org/apaonto/Drug_Therapy#Ansia_sociale
 <http://ontology.apa.org/apaonto/Drug_Therapy#Ansia_sociale> rdf:type owl:NamedIndividual ;
                                                              :collegatoA :Ansia_generalizzata ;
+                                                             :haGravità :Lieve ;
                                                              :èCorrelatoA :Ansia ;
+                                                             <èCronico> "false"^^xsd:boolean ;
                                                              rdfs:label "Ansia sociale"@en .
 
 
@@ -687,6 +709,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 <http://ontology.apa.org/apaonto/Drug_Therapy#Cambio_repentino_di_emozioni> rdf:type owl:NamedIndividual ;
                                                                             :haGravità :Grave ;
                                                                             :èCorrelatoA <http://ontology.apa.org/apaonto/Drug_Therapy#Umore> ;
+                                                                            <èCronico> "true"^^xsd:boolean ;
                                                                             rdfs:label "Cambio repentino di emozioni"@en .
 
 
@@ -792,13 +815,16 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Ansia_generalizzata
 :Ansia_generalizzata rdf:type owl:NamedIndividual ;
                      :collegatoA <http://ontology.apa.org/apaonto/Drug_Therapy#Ansia_sociale> ;
+                     :haGravità :Grave ;
                      :èCorrelatoA :Ansia ;
+                     <èCronico> "true"^^xsd:boolean ;
                      rdfs:label "Ansia generalizzata"@en .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/Antonio_Bianchi
 :Antonio_Bianchi rdf:type owl:NamedIndividual ;
                  :soffreDi :Ansia_generalizzata ;
+                 <haEtà> 25 ;
                  rdfs:label "Antonio Bianchi"@en .
 
 

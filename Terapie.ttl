@@ -12,6 +12,10 @@
 
 <http://www.semanticweb.org/santo/ontologies/2025/0> rdf:type owl:Ontology ;
                                                       owl:imports <http://example.org/myontology> ;
+                                                      <http://purl.org/dc/elements/1.1/creator> "Gabriele Santoro"@it ;
+                                                      <http://purl.org/dc/elements/1.1/date> "2024-01-01T00:00:00"^^xsd:dateTime ;
+                                                      <http://purl.org/dc/elements/1.1/description> "La seguente ontologia, sviluppata per il progetto di Modellazione Concettuale per il Web Semantico si basa sul dominio della psicologia/psichiatria, cercando di rappresentare le principali classi di disturbo, di terapia e di professionista sanitario e mettendo in correlazione queste tre macro entità con lo scopo di consigliare ad un ipotetico paziente la giusta terapia e il conseguente contatto sanitario più adatto."@it ;
+                                                      <http://purl.org/dc/elements/1.1/title> "Terapie" ;
                                                       vann:preferredNamespacePrefix "terapie:" ;
                                                       vann:preferredNamespaceUri "http://www.semanticweb.org/santo/ontologies/Terapie" .
 

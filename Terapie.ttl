@@ -446,6 +446,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                 owl:onProperty :èInCuraDa ;
                                 owl:someValuesFrom :ProfessionistaSanitario
                               ] ;
+          rdfs:comment "La classe Paziente serve a definire il concetto generale di paziente. In questo caso l'accezione di paziente è riferita sia alla persona che svolge un qualche tipo di terapia ma anche a colui che vuole iniziarla."@it ;
           rdfs:label "Paziente"@it .
 
 
@@ -470,6 +471,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                                owl:onProperty :svolge ;
                                                owl:someValuesFrom :Terapia
                                              ] ;
+                         rdfs:comment "La classe ProfessionsitaSanitario modella il concetto di figura medica che lavoro nel campo psicologico e psichiatrico."@it ;
                          rdfs:label "ProfessionistaSanitario"@it .
 
 
@@ -484,6 +486,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                   owl:someValuesFrom :TerapiaFarmacologica
                                 ] ;
             rdfs:subClassOf :ProfessionistaSanitario ;
+            rdfs:comment "La classe Psichiatra modella il concetto di figura medica specializzata in terapia psichiatrica"@it ;
             rdfs:label "Psichiatra"@it .
 
 
@@ -501,6 +504,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                               owl:someValuesFrom :TerapiaCorporea
                                             ] ;
                         rdfs:subClassOf :ProfessionistaSanitario ;
+                        rdfs:comment "La classe PsicoterapeutaCorporea modella il concetto di figura medica psicoterapeutica specializzata in varie tecniche che coinvolgono azioni maggiormente fisiche nel paziente, quindi che usa una metodologia corporea"@it ;
                         rdfs:label "PsicoterapeutaCorporeo"@it .
 
 
@@ -511,6 +515,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                              owl:someValuesFrom :Psicoterapia
                                            ] ;
                        rdfs:subClassOf :ProfessionistaSanitario ;
+                       rdfs:comment "La classe PsicoterapeutaVerbale modella il concetto di figura medica psicoterapeutica che fa uso di metodologie verbali"@it ;
                        rdfs:label "PsicoterapeutaVerbale"@it .
 
 
@@ -525,6 +530,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                     owl:someValuesFrom :PsicoterapeutaVerbale
                                   ] ;
               rdfs:subClassOf :Terapia ;
+              rdfs:comment "La classe Psicoterapia serve a definire il concetto generico di psicoterapia, ovvero il tipo di terapia svolta da professionisti che hanno svolto un qualche tipo di scuola specializzante di psicoterapia"@it ;
               rdfs:label "Psicoterapia"@it .
 
 
@@ -563,12 +569,14 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                owl:onProperty :èSvoltaDa ;
                                owl:someValuesFrom :ProfessionistaSanitario
                              ] ;
+         rdfs:comment "La classe Terapia serve a definire il concetto di terapia psicologica/psichiatrica che viene svolta da un qualche professionista sanitario e da un paziente con un qualche disturbo"@it ;
          rdfs:label "Terapia"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaCognitivoComportamentale
 :TerapiaCognitivoComportamentale rdf:type owl:Class ;
                                  rdfs:subClassOf :Psicoterapia ;
+                                 rdfs:comment "La classe TerapiaCognitivoComportamentale è un tipo di terapia svolta da psicoterapeutici che hanno svolto una specifica scuola che si basa sul modello Cognitivo comportamentale. Questo modello si concentra su come i pensieri (cognizioni) e i comportamenti influenzano le emozioni e le azioni"@it ;
                                  rdfs:label "TerapiaCognitivoComportamentale"@it .
 
 
@@ -583,6 +591,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                        owl:someValuesFrom :PsicoterapeutaCorporeo
                                      ] ;
                  rdfs:subClassOf :Terapia ;
+                 rdfs:comment "La classe TerapiaCorporea si riferisce ad una terapia svolta da uno psicoterapeuta specializzata in metodologia corporea"@it ;
                  rdfs:label "TerapiaCorporea"@it .
 
 
@@ -601,18 +610,21 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                             owl:someValuesFrom :Psichiatra
                                           ] ;
                       rdfs:subClassOf :Terapia ;
+                      rdfs:comment "La classe TerapiaFarmacologica modella il concetto di terapia farmacologica, ovvero la terapia psichiatrica svolta da uno professionista psichiatrico e che quindi fa uso di medicinali per trattare disturbi di vario tipo"@it ;
                       rdfs:label "TerapiaFarmacologica"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaPsicodinamica
 :TerapiaPsicodinamica rdf:type owl:Class ;
                       rdfs:subClassOf :Psicoterapia ;
+                      rdfs:comment "La classe TerapiaPsicodinamica è un tipo di terapia svolta da psicoterapeutici che hanno svolto una specifica scuola che si basa sul modello Psicodinamico. Questo modello si basa sulle teorie di Sigmund Freud, ed esplora l'influenza dell'inconscio e delle esperienze passate sul comportamento attuale"@it ;
                       rdfs:label "TerapiaPsicodinamica"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaSistemicoRelazionale
 :TerapiaSistemicoRelazionale rdf:type owl:Class ;
                              rdfs:subClassOf :Psicoterapia ;
+                             rdfs:comment "La classe TerapiaSistemicoRelazionale è un tipo di terapia svolta da psicoterapeutici che hanno svolto una specifica scuola che si basa sul modello Sistemico-relazionale. Questo modello considera gli individui all'interno dei loro sistemi relazionali, come la famiglia o la comunità"@it ;
                              rdfs:label "TerapiaSistemicoRelazionale"@it .
 
 

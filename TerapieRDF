@@ -1,0 +1,1768 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/santo/ontologies/2025/0/"
+     xml:base="http://www.semanticweb.org/santo/ontologies/2025/0/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:snomed="http://purl.bioontology.org/ontology/SNOMEDCT"
+     xmlns:apaonto="http://ontology.apa.org/apaonto#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0">
+        <owl:imports rdf:resource="http://example.org/myontology"/>
+        <dc:creator xml:lang="it">Gabriele Santoro</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-01T00:00:00</dc:date>
+        <dc:description xml:lang="it">La seguente ontologia, sviluppata per il progetto di Modellazione Concettuale per il Web Semantico si basa sul dominio della psicologia/psichiatria, cercando di rappresentare le principali classi di disturbo, di terapia e di professionista sanitario e mettendo in correlazione queste tre macro entità con lo scopo di consigliare ad un ipotetico paziente la giusta terapia e il conseguente contatto sanitario più adatto.</dc:description>
+        <dc:title>Terapie</dc:title>
+        <vann:preferredNamespacePrefix>terapie:</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>http://www.semanticweb.org/santo/ontologies/Terapie</vann:preferredNamespaceUri>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#exactMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/collegatoA -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/collegatoA">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:comment xml:lang="it">Collega un disturbo ad un altro secondo vari (ma non specificati) parametri</rdfs:comment>
+        <rdfs:label xml:lang="it">collegatoA</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/efficacePer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/efficacePer">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èEfficaceUna"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:comment xml:lang="it">Indica che una qualche terapia è efficace per un certo disturbo</rdfs:comment>
+        <rdfs:label xml:lang="it">efficacePer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/faUsoDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/faUsoDi">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èUsatoIn"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaFarmacologica"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale"/>
+        <rdfs:comment xml:lang="it">Indica che una certa terapia farmacologica fa uso di una certa classe di farmaci psichiatrici</rdfs:comment>
+        <rdfs:label xml:lang="it">faUsoDi</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/haEffetto -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/haEffetto">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Effetto"/>
+        <rdfs:comment xml:lang="it">Indica il tipo di effetto principale che definisce una classe di psicofarmaci</rdfs:comment>
+        <rdfs:label xml:lang="it">haEffetto</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/haGravità -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/haGravità">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Gravità"/>
+        <rdfs:comment xml:lang="it">Indica il tipo di gravità percepita per un certo disturbo</rdfs:comment>
+        <rdfs:label xml:lang="it">haGravità</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/haInCura -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/haInCura">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Paziente"/>
+        <rdfs:comment xml:lang="it">Mette in relazione un&apos;istanza di professionista sanitario con un paziente</rdfs:comment>
+        <rdfs:label xml:lang="it">haInCura</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/metodologiaUtilizzataDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/metodologiaUtilizzataDa">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/utilizzaMetodologia"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Metodologia"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia"/>
+        <vann:preferredNamespacePrefix xml:lang="it">metodologiaUtilizzataDa</vann:preferredNamespacePrefix>
+        <rdfs:comment xml:lang="it">Indica che una certa metodologia è usata come base per un certo tipo di terapia</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/prescrittoPer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/prescrittoPer">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:comment xml:lang="it">Indica un tipo preciso di medicinale prescritto per un certo disturbo psichiatrico</rdfs:comment>
+        <rdfs:label xml:lang="it">prescrittoPer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/prescrive -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/prescrive">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Psichiatra"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale"/>
+        <rdfs:comment xml:lang="it">Indica che tipo di medicinale uno psichiatra prescrive</rdfs:comment>
+        <rdfs:label xml:lang="it">prescrive</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/puòEssereTrattatoDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/puòEssereTrattatoDa">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/puòTrattareUn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+        <rdfs:comment xml:lang="it">Indica che un certo tipo di disturbo può essere trattato da un certo tipo di professionista sanitario</rdfs:comment>
+        <rdfs:label xml:lang="it">puòEssereTrattatoDa</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/puòTrattareUn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/puòTrattareUn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:comment xml:lang="it">Indica che un professionista sanitario può trattare un qualche disturbo o classi di disturbi</rdfs:comment>
+        <rdfs:label xml:lang="it">puòTrattareUn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/soffreDi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/soffreDi">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Paziente"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:comment xml:lang="it">Indica che un certo paziente soffre di un certo disturbo. In questo caso soffre ha anche l&apos;accezione di cosa il paziente percepisce, non perforza cosa è indicato clinicamente</rdfs:comment>
+        <rdfs:label xml:lang="it">soffreDi</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/svolge -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/svolge">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èSvoltaDa"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia"/>
+        <rdfs:comment xml:lang="it">Indica che un professionista sanitario svolge una certa terapia</rdfs:comment>
+        <rdfs:label xml:lang="it">svolge</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/utilizzaMetodologia -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/utilizzaMetodologia">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Metodologia"/>
+        <rdfs:comment xml:lang="it">Indica che una terapia utilizza una certa metodologia tra verbale, psichiatrica e corporea</rdfs:comment>
+        <rdfs:label xml:lang="it">utilizzaMetodologia</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/èCorrelatoA -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/èCorrelatoA">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Correlazione"/>
+        <rdfs:comment xml:lang="it">Indica che un certo disturbo è correlato ad un certo concetto, sfera dell&apos;individuo, come ad esempio Ansia o Umore</rdfs:comment>
+        <rdfs:label xml:lang="it">èCorrelatoA</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/èEfficaceUna -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/èEfficaceUna">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia"/>
+        <rdfs:comment xml:lang="it">Indica che per un certo disturbo è efficace una certa terapia</rdfs:comment>
+        <rdfs:label xml:lang="it">èEfficaceUna</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/èInCuraDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/èInCuraDa">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Paziente"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+        <rdfs:comment xml:lang="it">Indica che un certo paziente è in cura da un certo professionista sanitario. In questo caso però l&apos;accezione è piuttosto di potenzialità, cioè un certo paziente con un certo disturbo potrebbe essere aiutato da un certo professionsita sanitario</rdfs:comment>
+        <rdfs:label xml:lang="it">èInCuraDa</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/èSoffertoDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/èSoffertoDa">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Paziente"/>
+        <rdfs:comment xml:lang="it">Indica che un certo disturbo è sofferto da un paziente</rdfs:comment>
+        <rdfs:label xml:lang="it">èSoffertoDa</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/èSvoltaDa -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/èSvoltaDa">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+        <rdfs:comment xml:lang="it">Indica che una certa terapia è svolta da un professionista sanitario</rdfs:comment>
+        <rdfs:label xml:lang="it">èSvoltaDa</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/èUsatoIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/èUsatoIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaFarmacologica"/>
+        <rdfs:label xml:lang="it">èUsatoIn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/haEtà -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/haEtà">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Paziente"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:label xml:lang="en">haEtà</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/èCronico -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/èCronico">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:label xml:lang="en">èCronico</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drugs -->
+
+    <owl:Class rdf:about="http://ontology.apa.org/apaonto/Drugs">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale"/>
+        <rdfs:comment xml:lang="it">La classe Drug è allineata dall&apos;ontologia Apaonto, più nel dettaglio alla classe Drugs. Apaonto è un&apos;ontologia correlata al mondo della medicina psicologica e psichiatrica.</rdfs:comment>
+        <rdfs:label xml:lang="en">Drug</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.bioontology.org/ontology/SNOMEDCT/74732009 -->
+
+    <owl:Class rdf:about="http://purl.bioontology.org/ontology/SNOMEDCT/74732009">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:comment xml:lang="it">La classe Mental Disorder è allineata alla classe Mental Disorder dell&apos;ontologia Snomed, un&apos;altra grande ontologia riferita al mondo psicologico e psichiatrico. In questo caso l&apos;allineamento è stato fatto per mettere in correlazione il concetto di Disturbo con un&apos;accezione sia psicologica che psichiatrica</rdfs:comment>
+        <rdfs:label xml:lang="en">MentalDisorder</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Ansia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Ansia">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Correlazione"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Ansiolitici -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Ansiolitici">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/haEffetto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Sedativo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/prescrittoPer"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDiAnsia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale"/>
+        <rdfs:comment xml:lang="it">La classe Ansiolitco modella il concetto di medicinale ansiolitico. Questi farmaci sono usati per trattare l&apos;ansia e i disturbi correlati. Aiutano a ridurre la tensione e promuovono il rilassamento</rdfs:comment>
+        <rdfs:label xml:lang="it">Ansiolitici</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Antidepressivi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Antidepressivi">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/haEffetto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/StabilizzatoreDelloUmore"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/prescrittoPer"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDelloUmore"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale"/>
+        <rdfs:comment xml:lang="it">La classe Antidepressivi modella il concetto di medicinale antidpressivo. Questi farmaci sono utilizzati per trattare la depressione e altri disturbi dell&apos;umore. Aiutano a migliorare l&apos;umore e ridurre i sintomi depressivi</rdfs:comment>
+        <rdfs:label xml:lang="it">Antidepressivi</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Antipsicotici -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Antipsicotici">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/haEffetto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Neurolettico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/prescrittoPer"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboPsicotico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale"/>
+        <rdfs:comment xml:lang="it">La classe Antipsicotici modella il concetto di medicinale antipsicotico. Questi farmaci sono prescritti per trattare disturbi psicotici come la schizofrenia e il disturbo bipolare. Aiutano a ridurre i sintomi psicotici come allucinazioni e deliri</rdfs:comment>
+        <rdfs:label xml:lang="it">Antipsicotici</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Corporea -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Corporea">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/metodologiaUtilizzataDa"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaCorporea"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Metodologia"/>
+        <rdfs:comment xml:lang="it">La classe Corporea modella il concetto di metodologia corporea, una tipo di psicoterapia che usata tecniche fisiche di vario tipo per gestire ad esempio disturbi di Ansia e PTSD.</rdfs:comment>
+        <rdfs:label xml:lang="it">Corporea</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Correlazione -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Correlazione">
+        <rdfs:comment xml:lang="it">La classe correlazione serve a definire, in maniera rapida e diretta, la sfera a cui è associata una classe di disturbi</rdfs:comment>
+        <rdfs:label xml:lang="it">Correlazione</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/collegatoA"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/haGravità"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Gravità"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/puòEssereTrattatoDa"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èCorrelatoA"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Correlazione"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èEfficaceUna"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èSoffertoDa"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Paziente"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDellaPersonalità"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDelloUmore"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDiAnsia"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboPsicosomatico"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboPsicotico"/>
+        </owl:disjointUnionOf>
+        <rdfs:comment xml:lang="it">La classe Disturbo serve a definire il concetto generale di disturbo psicologico/psichiatrico in maniera generica</rdfs:comment>
+        <rdfs:label xml:lang="it">Disturbo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDellaPersonalità -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDellaPersonalità">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èCorrelatoA"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Personalità"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:comment xml:lang="it">La classe DisturboDellaPersonalità modella il concetto di disturbo psicologico/psichiatrico correlato alla sfera della personalità di un individuo</rdfs:comment>
+        <rdfs:label xml:lang="it">DisturboDiPersonalità</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDelloUmore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDelloUmore">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èCorrelatoA"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Umore"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:comment xml:lang="it">La classe DisturboDelloUmore modella il concetto di disturbo psicologico/psichiatrico correlato alla sfera dell&apos;umore di un individuo</rdfs:comment>
+        <rdfs:label xml:lang="it">DisturboDelloUmore</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDiAnsia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDiAnsia">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èCorrelatoA"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Ansia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:comment xml:lang="it">La classe DisturboDiAnsia modella il concetto di disturbo psicologico/psichiatrico correlato alla sfera dell&apos;ansia di un individuo</rdfs:comment>
+        <rdfs:label xml:lang="it">DisturboDiAnsia</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/DisturboPsicosomatico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboPsicosomatico">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èCorrelatoA"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Psicosomatico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:comment xml:lang="it">La classe DisturboPsicosomatico modella il concetto di disturbo psicologico/psichiatrico correlato alla sfera dei dei sintomi psicosamatici di un individuo conseguenti ad un qualche problema psicologico/psichiatrico</rdfs:comment>
+        <rdfs:label xml:lang="it">DisturboPsicosomatico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/DisturboPsicotico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboPsicotico">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èCorrelatoA"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Psicotico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+        <rdfs:comment xml:lang="it">La classe DisturboPsicotico modella il concetto di disturbo psicologico/psichiatrico correlato alla sfera della psicosi di un individuo, concettualmente è un tipo disturbo naturalmente psicotico</rdfs:comment>
+        <rdfs:label xml:lang="it">DisturboPsicotico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Effetto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Effetto">
+        <rdfs:comment xml:lang="it">La classe Effetto serve a definire in maniera astratta alcuni dei possibile effetti di classi di medicinali utilizzati in campo psichiatrico. Nella seguente ontologia sono stati presi solo pochi principi psicoattivi delle prinicipali classi di medicinali esistenti.</rdfs:comment>
+        <rdfs:label xml:lang="it">Effetto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Farmacologica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Farmacologica">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/metodologiaUtilizzataDa"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaFarmacologica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Metodologia"/>
+        <rdfs:comment xml:lang="it">La classe Farmacologica modella il concetto di metodologia farmacologica, quindi è riferita alla terapia psichiatrica che fa uso di medicinali con effetti di vario tipo per gestire disturbi</rdfs:comment>
+        <rdfs:label xml:lang="it">Farmacologica</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Gravità -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Gravità">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Grave"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Lieve"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">La classe Gravità è una classe enumerata che serve ad associare un qualche grado di gravità ad un disturbo di un paziente. In questo caso la gravità si riferisce alla percezione che il paziente ha dei suoi sintomi piuttosto che ad una scalta indicativa che un professionista sanitario può assegnare dopo una serie di colloqui.</rdfs:comment>
+        <rdfs:label xml:lang="it">Gravità</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/haEffetto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Effetto"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/prescrittoPer"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èUsatoIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaFarmacologica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">La classe Medicinale modella il concetto generale di farmaco psichiatrico ed è definita equivalentTo alla classe Drugs dell&apos;ontologia esterna Apaonto.</rdfs:comment>
+        <rdfs:label xml:lang="it">Medicinale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Metodologia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Metodologia">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/metodologiaUtilizzataDa"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">La classe Metodologia modella il concetto di metodologia di una terapia, è stata inserita per differenziare i tipi di terapia sia svolti da psicoterapeuti che da psichiatri. Nell&apos;ontologia abbiamo tre principali metodologie, verbale, corporea e farmacologica</rdfs:comment>
+        <rdfs:label xml:lang="it">Metodologia</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Neurolettico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Neurolettico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Effetto"/>
+        <rdfs:comment xml:lang="it">La classe Neurolettico modella il concetto di effetto Neurolettico, Gli effetti neurolettici dei medicinali psichiatrici si riferiscono agli effetti che questi farmaci hanno sul sistema nervoso centrale, in particolare attraverso il blocco dei recettori della dopamina.</rdfs:comment>
+        <rdfs:label xml:lang="it">Neurolettico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Paziente -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Paziente">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/soffreDi"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èInCuraDa"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">La classe Paziente serve a definire il concetto generale di paziente. In questo caso l&apos;accezione di paziente è riferita sia alla persona che svolge un qualche tipo di terapia ma anche a colui che vuole iniziarla.</rdfs:comment>
+        <rdfs:label xml:lang="it">Paziente</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Personalità -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Personalità">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Correlazione"/>
+        <rdfs:comment xml:lang="it">La classe Personalità modella il concetto di personalità nella sua accezione più astratta e generica</rdfs:comment>
+        <rdfs:label xml:lang="en">Personalità</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/haInCura"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Paziente"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/puòTrattareUn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/svolge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">La classe ProfessionsitaSanitario modella il concetto di figura medica che lavoro nel campo psicologico e psichiatrico.</rdfs:comment>
+        <rdfs:label xml:lang="it">ProfessionistaSanitario</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Psichiatra -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Psichiatra">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/prescrive"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/svolge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaFarmacologica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+        <rdfs:comment xml:lang="it">La classe Psichiatra modella il concetto di figura medica specializzata in terapia psichiatrica</rdfs:comment>
+        <rdfs:label xml:lang="it">Psichiatra</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Psicosomatico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Psicosomatico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Correlazione"/>
+        <rdfs:comment xml:lang="it">La classe Psicosomatico modella il concetto di problema psicosomatico nella sua accezione più astratta e generica.</rdfs:comment>
+        <rdfs:label xml:lang="en">Psicosomatico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/PsicoterapeutaCorporeo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/PsicoterapeutaCorporeo">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/svolge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaCorporea"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+        <rdfs:comment xml:lang="it">La classe PsicoterapeutaCorporea modella il concetto di figura medica psicoterapeutica specializzata in varie tecniche che coinvolgono azioni maggiormente fisiche nel paziente, quindi che usa una metodologia corporea</rdfs:comment>
+        <rdfs:label xml:lang="it">PsicoterapeutaCorporeo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/PsicoterapeutaVerbale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/PsicoterapeutaVerbale">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/svolge"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Psicoterapia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+        <rdfs:comment xml:lang="it">La classe PsicoterapeutaVerbale modella il concetto di figura medica psicoterapeutica che fa uso di metodologie verbali</rdfs:comment>
+        <rdfs:label xml:lang="it">PsicoterapeutaVerbale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Psicoterapia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Psicoterapia">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/utilizzaMetodologia"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Verbale"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èSvoltaDa"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/PsicoterapeutaVerbale"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia"/>
+        <rdfs:comment xml:lang="it">La classe Psicoterapia serve a definire il concetto generico di psicoterapia, ovvero il tipo di terapia svolta da professionisti che hanno svolto un qualche tipo di scuola specializzante di psicoterapia</rdfs:comment>
+        <rdfs:label xml:lang="it">Psicoterapia</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Psicotico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Psicotico">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Correlazione"/>
+        <rdfs:comment xml:lang="it">La classe Psicotico modella il concetto di psicotico nella sua accezione più astratta e generica</rdfs:comment>
+        <rdfs:label xml:lang="en">Psicotico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Sedativo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Sedativo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Effetto"/>
+        <rdfs:comment xml:lang="it">La classe Sedativo modella il concetto di sedativo.Gli effetti sedativi si riferiscono alla capacità di alcuni farmaci di indurre uno stato di calma, rilassamento o sonnolenza</rdfs:comment>
+        <rdfs:label xml:lang="it">Sedativo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/StabilizzatoreDelloUmore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/StabilizzatoreDelloUmore">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Effetto"/>
+        <rdfs:comment xml:lang="it">La classe StabilizzatoreDelloUmore modella il concetto di stabilizzatore dell&apos;umore. Gli stabilizzatori dell&apos;umore sono una categoria di farmaci utilizzati principalmente per trattare il disturbo bipolare, una condizione caratterizzata da oscillazioni estreme dell&apos;umore tra episodi di mania e depressione.</rdfs:comment>
+        <rdfs:label xml:lang="it">StabilizzatoreDelloUmore</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Terapia -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/efficacePer"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/utilizzaMetodologia"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Metodologia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èSvoltaDa"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">La classe Terapia serve a definire il concetto di terapia psicologica/psichiatrica che viene svolta da un qualche professionista sanitario e da un paziente con un qualche disturbo</rdfs:comment>
+        <rdfs:label xml:lang="it">Terapia</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaCognitivoComportamentale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaCognitivoComportamentale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Psicoterapia"/>
+        <rdfs:comment xml:lang="it">La classe TerapiaCognitivoComportamentale è un tipo di terapia svolta da psicoterapeutici che hanno svolto una specifica scuola che si basa sul modello Cognitivo comportamentale. Questo modello si concentra su come i pensieri (cognizioni) e i comportamenti influenzano le emozioni e le azioni</rdfs:comment>
+        <rdfs:label xml:lang="it">TerapiaCognitivoComportamentale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaCorporea -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaCorporea">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/utilizzaMetodologia"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Corporea"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èSvoltaDa"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/PsicoterapeutaCorporeo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia"/>
+        <rdfs:comment xml:lang="it">La classe TerapiaCorporea si riferisce ad una terapia svolta da uno psicoterapeuta specializzata in metodologia corporea</rdfs:comment>
+        <rdfs:label xml:lang="it">TerapiaCorporea</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaFarmacologica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaFarmacologica">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/faUsoDi"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/utilizzaMetodologia"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Farmacologica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èSvoltaDa"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Psichiatra"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia"/>
+        <rdfs:comment xml:lang="it">La classe TerapiaFarmacologica modella il concetto di terapia farmacologica, ovvero la terapia psichiatrica svolta da uno professionista psichiatrico e che quindi fa uso di medicinali per trattare disturbi di vario tipo</rdfs:comment>
+        <rdfs:label xml:lang="it">TerapiaFarmacologica</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaPsicodinamica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaPsicodinamica">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Psicoterapia"/>
+        <rdfs:comment xml:lang="it">La classe TerapiaPsicodinamica è un tipo di terapia svolta da psicoterapeutici che hanno svolto una specifica scuola che si basa sul modello Psicodinamico. Questo modello si basa sulle teorie di Sigmund Freud, ed esplora l&apos;influenza dell&apos;inconscio e delle esperienze passate sul comportamento attuale</rdfs:comment>
+        <rdfs:label xml:lang="it">TerapiaPsicodinamica</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaSistemicoRelazionale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/TerapiaSistemicoRelazionale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Psicoterapia"/>
+        <rdfs:comment xml:lang="it">La classe TerapiaSistemicoRelazionale è un tipo di terapia svolta da psicoterapeutici che hanno svolto una specifica scuola che si basa sul modello Sistemico-relazionale. Questo modello considera gli individui all&apos;interno dei loro sistemi relazionali, come la famiglia o la comunità</rdfs:comment>
+        <rdfs:label xml:lang="it">TerapiaSistemicoRelazionale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Umore -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Umore">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Correlazione"/>
+        <rdfs:comment xml:lang="it">La classe Umore modella il concetto di umore nella sua accezione più astratta e generica</rdfs:comment>
+        <rdfs:label xml:lang="en">Umore</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Verbale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Verbale">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/metodologiaUtilizzataDa"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Psicoterapia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Metodologia"/>
+        <rdfs:comment xml:lang="it">La classe Verbale modella il concetto di metodologia verbale, ovvero la generica psicoterapia che comporta colloqui e analisi dell&apos;individuol dei suoi comportamenti e delle sue esperienze.</rdfs:comment>
+        <rdfs:label xml:lang="it">Verbale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#Alessandro_Verdi -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#Alessandro_Verdi">
+        <soffreDi rdf:resource="http://ontology.apa.org/apaonto/Drug_Therapy#Cambio_repentino_di_emozioni"/>
+        <haEtà rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</haEtà>
+        <rdfs:label xml:lang="en">Alessandro Verdi</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#Ansia_sociale -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#Ansia_sociale">
+        <collegatoA rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Ansia_generalizzata"/>
+        <haGravità rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Lieve"/>
+        <èCorrelatoA rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Ansia"/>
+        <èCronico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</èCronico>
+        <rdfs:label xml:lang="en">Ansia sociale</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#Cambio_repentino_di_emozioni -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#Cambio_repentino_di_emozioni">
+        <haGravità rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Grave"/>
+        <èCorrelatoA rdf:resource="http://ontology.apa.org/apaonto/Drug_Therapy#Umore"/>
+        <èCronico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èCronico>
+        <rdfs:label xml:lang="en">Cambio repentino di emozioni</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#Citalopram -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#Citalopram">
+        <haEffetto rdf:resource="http://ontology.apa.org/apaonto/Drug_Therapy#StabilizzatoreDelloUmore"/>
+        <prescrittoPer rdf:resource="http://ontology.apa.org/apaonto/Drug_Therapy#Cambio_repentino_di_emozioni"/>
+        <rdfs:label xml:lang="en">Citalopram</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#Difficoltà_a_relazionarsi -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#Difficoltà_a_relazionarsi">
+        <rdfs:label xml:lang="en">Difficoltà a relazionarsi</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDelloUmore -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDelloUmore">
+        <rdf:type rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDelloUmore"/>
+        <rdfs:label xml:lang="en">DisturboDelloUmore</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDiAnsia -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDiAnsia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDiAnsia"/>
+        <rdfs:label xml:lang="en">DisturboDiAnsia</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDiPersonalità -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDiPersonalità">
+        <rdf:type rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboDellaPersonalità"/>
+        <rdfs:label xml:lang="en">DisturboDiPersonalità</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#DisturboPsicosomatico -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#DisturboPsicosomatico">
+        <rdf:type rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboPsicosomatico"/>
+        <rdfs:label xml:lang="en">DisturboPsicosomatico</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#DisturboPsicotico -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#DisturboPsicotico">
+        <rdf:type rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/DisturboPsicotico"/>
+        <rdfs:label xml:lang="en">DisturboPsicotico</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#Farmacologica -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#Farmacologica">
+        <rdfs:label xml:lang="en">Farmacologica</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#Mario_Cipriani -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#Mario_Cipriani">
+        <puòTrattareUn rdf:resource="http://ontology.apa.org/apaonto/Drug_Therapy#Cambio_repentino_di_emozioni"/>
+        <rdfs:label xml:lang="en">Mario Cipriani</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#Neurolettico -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#Neurolettico">
+        <rdfs:label xml:lang="en">Neurolettico</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#Paroxetina -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#Paroxetina">
+        <haEffetto rdf:resource="http://ontology.apa.org/apaonto/Drug_Therapy#StabilizzatoreDelloUmore"/>
+        <rdfs:label xml:lang="en">Paroxetina</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#StabilizzatoreDelloUmore -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#StabilizzatoreDelloUmore">
+        <rdfs:label xml:lang="en">StabilizzatoreDelloUmore</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#Terapia_farmacologica_1 -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#Terapia_farmacologica_1">
+        <efficacePer rdf:resource="http://ontology.apa.org/apaonto/Drug_Therapy#DisturboDelloUmore"/>
+        <faUsoDi rdf:resource="http://ontology.apa.org/apaonto/Drug_Therapy#Paroxetina"/>
+        <utilizzaMetodologia rdf:resource="http://ontology.apa.org/apaonto/Drug_Therapy#Farmacologica"/>
+        <rdfs:label xml:lang="en">Terapia farmacologica_1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#Umore -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#Umore">
+        <rdf:type rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Umore"/>
+        <rdfs:label xml:lang="en">Umore</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ontology.apa.org/apaonto/Drug_Therapy#Verbale -->
+
+    <owl:NamedIndividual rdf:about="http://ontology.apa.org/apaonto/Drug_Therapy#Verbale">
+        <rdfs:label xml:lang="en">Verbale</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.bioontology.org/ontology/SNOMEDCT#Paura_di_uscire -->
+
+    <owl:NamedIndividual rdf:about="http://purl.bioontology.org/ontology/SNOMEDCT#Paura_di_uscire">
+        <èCorrelatoA rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Ansia"/>
+        <rdfs:label xml:lang="en">Paura di uscire</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Ansia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Ansia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Ansia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Ansia_generalizzata -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Ansia_generalizzata">
+        <collegatoA rdf:resource="http://ontology.apa.org/apaonto/Drug_Therapy#Ansia_sociale"/>
+        <haGravità rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Grave"/>
+        <èCorrelatoA rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Ansia"/>
+        <èCronico rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</èCronico>
+        <rdfs:label xml:lang="en">Ansia generalizzata</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Antonio_Bianchi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Antonio_Bianchi">
+        <soffreDi rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Ansia_generalizzata"/>
+        <haEtà rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</haEtà>
+        <rdfs:label xml:lang="en">Antonio Bianchi</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Francesco_Rossi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Francesco_Rossi">
+        <puòTrattareUn rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Ansia_generalizzata"/>
+        <rdfs:label xml:lang="en">Francesco Rossi</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Grave -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Grave">
+        <rdf:type rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Gravità"/>
+        <rdfs:label xml:lang="en">Grave</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Lieve -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Lieve">
+        <rdf:type rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Gravità"/>
+        <rdfs:label xml:lang="en">Lieve</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/santo/ontologies/2025/0/Psicoterapia_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Psicoterapia_1">
+        <efficacePer rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Ansia_generalizzata"/>
+        <utilizzaMetodologia rdf:resource="http://ontology.apa.org/apaonto/Drug_Therapy#Verbale"/>
+        <rdfs:label xml:lang="en">Psicoterapia_1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/Ansia">
+        <rdfs:comment xml:lang="it">La classe Ansia modella il concetto di ansia nella sua accezione più astratta e generica</rdfs:comment>
+        <rdfs:label xml:lang="en">Ansia</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/p">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/c">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/d">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/d2">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/ps">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/d1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/t">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/m">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/e">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/santo/ontologies/2025/0/m2">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Paziente"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/soffreDi"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/p"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ps"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/puòTrattareUn"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ps"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/haInCura"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ps"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S5</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Paziente"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Correlazione"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/c"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/soffreDi"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/p"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èCorrelatoA"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/c"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d2"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/èCorrelatoA"/>
+                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d2"/>
+                                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/c"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/soffreDi"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/p"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d2"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ProfessionistaSanitario"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ps"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/puòEssereTrattatoDa"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ps"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d2"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/collegatoA"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d1"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d2"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/puòEssereTrattatoDa"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d2"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/ps"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S3</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Terapia"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/efficacePer"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/t"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d2"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/collegatoA"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d2"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/efficacePer"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/t"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d2"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S4</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/m"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Effetto"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/e"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/haEffetto"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/m"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/e"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Medicinale"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/m2"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/haEffetto"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/m2"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/e"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/Disturbo"/>
+                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/prescrittoPer"/>
+                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/m"/>
+                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/prescrittoPer"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/m2"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/santo/ontologies/2025/0/d"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

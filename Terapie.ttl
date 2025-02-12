@@ -43,7 +43,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
 :collegatoA rdf:type owl:ObjectProperty ;
             rdfs:domain :Disturbo ;
             rdfs:range :Disturbo ;
-            rdfs:label "collegatoA"@en .
+            rdfs:label "collegatoA"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/efficacePer
@@ -52,7 +52,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
              rdf:type owl:InverseFunctionalProperty ;
              rdfs:domain :Terapia ;
              rdfs:range :Disturbo ;
-             rdfs:label "efficacePer"@en .
+             rdfs:label "efficacePer"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/faUsoDi
@@ -61,14 +61,14 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
          rdf:type owl:InverseFunctionalProperty ;
          rdfs:domain :TerapiaFarmacologica ;
          rdfs:range :Medicinale ;
-         rdfs:label "faUsoDi"@en .
+         rdfs:label "faUsoDi"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/haEffetto
 :haEffetto rdf:type owl:ObjectProperty ;
            rdfs:domain :Medicinale ;
            rdfs:range :Effetto ;
-           rdfs:label "haEffetto"@en .
+           rdfs:label "haEffetto"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/haGravità
@@ -76,14 +76,14 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                     owl:FunctionalProperty ;
            rdfs:domain :Disturbo ;
            rdfs:range :Gravità ;
-           rdfs:label "haGravità"@en .
+           rdfs:label "haGravità"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/haInCura
 :haInCura rdf:type owl:ObjectProperty ;
           rdfs:domain :ProfessionistaSanitario ;
           rdfs:range :Paziente ;
-          rdfs:label "haInCura"@en .
+          rdfs:label "haInCura"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/metodologiaUtilizzataDa
@@ -92,21 +92,21 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                          rdf:type owl:InverseFunctionalProperty ;
                          rdfs:domain :Metodologia ;
                          rdfs:range :Terapia ;
-                         rdfs:label "metodologiaUtilizzataDa"@en .
+                         vann:preferredNamespacePrefix "metodologiaUtilizzataDa"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/prescrittoPer
 :prescrittoPer rdf:type owl:ObjectProperty ;
                rdfs:domain :Medicinale ;
                rdfs:range :Disturbo ;
-               rdfs:label "prescrittoPer"@en .
+               rdfs:label "prescrittoPer"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/prescrive
 :prescrive rdf:type owl:ObjectProperty ;
            rdfs:domain :Psichiatra ;
            rdfs:range :Medicinale ;
-           rdfs:label "prescrive"@en .
+           rdfs:label "prescrive"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/puòEssereTrattatoDa
@@ -114,21 +114,21 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                      owl:inverseOf :puòTrattareUn ;
                      rdfs:domain :Disturbo ;
                      rdfs:range :ProfessionistaSanitario ;
-                     rdfs:label "puòEssereTrattatoDa"@en .
+                     rdfs:label "puòEssereTrattatoDa"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/puòTrattareUn
 :puòTrattareUn rdf:type owl:ObjectProperty ;
                rdfs:domain :ProfessionistaSanitario ;
                rdfs:range :Disturbo ;
-               rdfs:label "puòTrattareUn"@en .
+               rdfs:label "puòTrattareUn"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/soffreDi
 :soffreDi rdf:type owl:ObjectProperty ;
           rdfs:domain :Paziente ;
           rdfs:range :Disturbo ;
-          rdfs:label "soffreDi"@en .
+          rdfs:label "soffreDi"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/svolge
@@ -137,7 +137,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
         rdf:type owl:InverseFunctionalProperty ;
         rdfs:domain :ProfessionistaSanitario ;
         rdfs:range :Terapia ;
-        rdfs:label "svolge"@en .
+        rdfs:label "svolge"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/utilizzaMetodologia
@@ -145,14 +145,14 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                               owl:InverseFunctionalProperty ;
                      rdfs:domain :Terapia ;
                      rdfs:range :Metodologia ;
-                     rdfs:label "utilizzaMetodologia"@en .
+                     rdfs:label "utilizzaMetodologia"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/èCorrelatoA
 :èCorrelatoA rdf:type owl:ObjectProperty ;
              rdfs:domain :Disturbo ;
              rdfs:range :Correlazione ;
-             rdfs:label "èCorrelatoA"@en .
+             rdfs:label "èCorrelatoA"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/èEfficaceUna
@@ -160,21 +160,21 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                        owl:InverseFunctionalProperty ;
               rdfs:domain :Disturbo ;
               rdfs:range :Terapia ;
-              rdfs:label "èEfficaceUna"@en .
+              rdfs:label "èEfficaceUna"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/èInCuraDa
 :èInCuraDa rdf:type owl:ObjectProperty ;
            rdfs:domain :Paziente ;
            rdfs:range :ProfessionistaSanitario ;
-           rdfs:label "èInCuraDa"@en .
+           rdfs:label "èInCuraDa"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/èSoffertoDa
 :èSoffertoDa rdf:type owl:ObjectProperty ;
              rdfs:domain :Disturbo ;
              rdfs:range :Paziente ;
-             rdfs:label "èSoffertoDa"@en .
+             rdfs:label "èSoffertoDa"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/èSvoltaDa
@@ -182,7 +182,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                     owl:InverseFunctionalProperty ;
            rdfs:domain :Terapia ;
            rdfs:range :ProfessionistaSanitario ;
-           rdfs:label "èSvoltaDa"@en .
+           rdfs:label "èSvoltaDa"@it .
 
 
 ###  http://www.semanticweb.org/santo/ontologies/2025/0/èUsatoIn
@@ -190,24 +190,7 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                    owl:InverseFunctionalProperty ;
           rdfs:domain :Medicinale ;
           rdfs:range :TerapiaFarmacologica ;
-          rdfs:label "èUsatoIn"@en .
-
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLDataProperty_19d5abb2_28b2_4501_ab3a_5e0497b9ddcb
-:OWLDataProperty_19d5abb2_28b2_4501_ab3a_5e0497b9ddcb rdf:type owl:DatatypeProperty ;
-                                                      rdfs:domain :Terapia ;
-                                                      rdfs:label "haFrequenza"@en .
-
-
-###  http://www.semanticweb.org/santo/ontologies/2025/0/OWLDataProperty_cce032cc_2293_4908_8f61_aded6bf0daee
-:OWLDataProperty_cce032cc_2293_4908_8f61_aded6bf0daee rdf:type owl:DatatypeProperty ;
-                                                      rdfs:domain :Disturbo ;
-                                                      rdfs:range xsd:boolean ;
-                                                      rdfs:label "èCronico"@en .
+          rdfs:label "èUsatoIn"@it .
 
 
 #################################################################
